@@ -99,11 +99,13 @@ export function ParallaxHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I believe getting a mortgage should be{' '}
-              <span className="text-cyan-400">transparent</span>,{' '}
-              <span className="text-emerald-400">fast</span>, and{' '}
-              <span className="text-amber-400">personal</span>.
-              {' '}Let me put my experience and technology to work for you.
+              Over <span className="text-cyan-400">25 years</span> in the mortgage
+              business and hundreds of millions funded — but what drives me
+              hasn&apos;t changed. Your home is{' '}
+              <span className="text-emerald-400">your most trusted asset</span>,
+              and you deserve someone who treats it that way. No receptionist,
+              no runaround —{' '}
+              <span className="text-amber-400">call me and reach me</span>.
             </motion.p>
 
             {/* Buttons */}

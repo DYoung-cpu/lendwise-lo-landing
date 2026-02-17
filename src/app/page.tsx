@@ -99,10 +99,18 @@ export default function DavidYoungPage() {
               Why Work With Me
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              As CMO and Partner at LendWise Mortgage, I combine decades of industry
-              experience with cutting-edge technology to deliver a mortgage experience
-              that&apos;s faster, smarter, and built around you. When you work with me,
-              you&apos;re working directly with an owner who&apos;s invested in your success.
+              I&apos;ve spent over 25 years in the mortgage industry, and I still
+              take pride in what real customer service means — staying ahead of
+              every new program, rate, and advantage that can benefit my clients.
+              I&apos;ve owned several successful mortgage businesses serving
+              different markets, but with LendWise, I&apos;ve built something
+              I&apos;ve always wanted: every program under one roof, powered by
+              the best pricing and technology in the business. Having funded
+              hundreds of millions in loans, I understand the weight of the
+              decisions homeowners face. Your home is your most trusted asset,
+              and that gravity is never lost on me. When you work with me,
+              you&apos;re working directly with an owner — no receptionist, no
+              middleman. I&apos;m always a phone call, text, or email away.
             </p>
           </motion.div>
 
