@@ -57,105 +57,110 @@ export function ParallaxHero() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center pt-28 md:pt-32">
-        {/* Headshot */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
-        >
-          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden border-4 border-[#C9A227] shadow-[0_0_60px_rgba(201,162,39,0.4)]">
-            <Image
-              src="/images/team/david-young.jpg"
-              alt="David Young"
-              width={192}
-              height={192}
-              className="w-full h-full object-cover"
-              priority
-            />
+      {/* Content - horizontal layout */}
+      <div className="relative z-10 max-w-6xl w-full mx-auto pt-40 md:pt-44">
+        <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12">
+          {/* Left side - Text & Info */}
+          <div className="flex-1 text-center md:text-left">
+            {/* Name */}
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold text-white mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              David Young
+            </motion.h1>
+
+            {/* Title */}
+            <motion.p
+              className="text-lg text-gold font-medium mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              CMO / Partner
+            </motion.p>
+
+            {/* Tagline */}
+            <motion.p
+              className="text-base text-cyan-400 uppercase tracking-[3px] font-medium mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Your Mortgage. My Mission.
+            </motion.p>
+
+            {/* Description */}
+            <motion.p
+              className="text-lg text-slate-400 max-w-[500px] leading-[1.7] mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              I believe getting a mortgage should be{' '}
+              <span className="text-cyan-400">transparent</span>,{' '}
+              <span className="text-emerald-400">fast</span>, and{' '}
+              <span className="text-amber-400">personal</span>.
+              {' '}Let me put my experience and technology to work for you.
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              className="flex gap-4 flex-wrap justify-center md:justify-start mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <StarButton
+                href="#apply"
+                lightColor="#d4af37"
+                backgroundColor="#0f172a"
+                duration={6}
+              >
+                Apply Now
+              </StarButton>
+              <StarButton
+                href="#about"
+                lightColor="#06b6d4"
+                backgroundColor="#0f172a"
+                duration={7}
+              >
+                Contact Me
+              </StarButton>
+            </motion.div>
+
+            {/* LendWise branding */}
+            <motion.p
+              className="text-sm text-slate-500 tracking-wide opacity-60"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              Powered by <span className="text-gold">LendWise</span> Mortgage
+            </motion.p>
           </div>
-        </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold text-white mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          David Young
-        </motion.h1>
-
-        {/* Title */}
-        <motion.p
-          className="text-lg text-gold font-medium mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          CMO / Partner
-        </motion.p>
-
-        {/* Tagline */}
-        <motion.p
-          className="text-base text-cyan-400 uppercase tracking-[3px] font-medium mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Your Mortgage. My Mission.
-        </motion.p>
-
-        {/* Description */}
-        <motion.p
-          className="text-lg text-slate-400 max-w-[500px] mx-auto leading-[1.7] mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-        >
-          I believe getting a mortgage should be{' '}
-          <span className="text-cyan-400">transparent</span>,{' '}
-          <span className="text-emerald-400">fast</span>, and{' '}
-          <span className="text-amber-400">personal</span>.
-          {' '}Let me put my experience and technology to work for you.
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          className="flex gap-4 flex-wrap justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <StarButton
-            href="#apply"
-            lightColor="#d4af37"
-            backgroundColor="#0f172a"
-            duration={6}
+          {/* Right side - Photo in horizontal rectangle */}
+          <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
-            Apply Now
-          </StarButton>
-          <StarButton
-            href="#about"
-            lightColor="#06b6d4"
-            backgroundColor="#0f172a"
-            duration={7}
-          >
-            Contact Me
-          </StarButton>
-        </motion.div>
-
-        {/* LendWise branding */}
-        <motion.p
-          className="mt-10 text-sm text-slate-500 tracking-wide"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          Powered by <span className="text-gold">LendWise</span> Mortgage
-        </motion.p>
+            <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-2 border-[#C9A227] shadow-[0_0_60px_rgba(201,162,39,0.4)]">
+              <Image
+                src="/images/team/david-young.jpg"
+                alt="David Young"
+                width={400}
+                height={500}
+                className="w-full h-full object-cover object-top"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

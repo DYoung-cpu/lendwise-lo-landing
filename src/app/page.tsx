@@ -35,17 +35,49 @@ export default function DavidYoungPage() {
     <main className="min-h-screen">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-[100]">
-        <div className="bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
-          <div className="flex items-center justify-center px-6 py-3">
-            <a href="#hero">
+        <div className="relative bg-slate-950/80 backdrop-blur-xl">
+          <div className="flex items-center justify-center px-6">
+            <motion.a
+              href="#hero"
+              className="block overflow-hidden h-44"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <Image
                 src="/images/lendwise-hero-logo.png"
                 alt="LendWise"
-                width={200}
-                height={88}
-                className="h-16 w-auto drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
+                width={250}
+                height={110}
+                className="h-[264px] w-auto -mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
-            </a>
+            </motion.a>
+          </div>
+          {/* Lamp beam at bottom edge of header */}
+          <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+            <div className="relative flex justify-center h-0">
+              {/* Wide soft glow - full width, only downward */}
+              <motion.div
+                initial={{ width: "8rem", opacity: 0 }}
+                animate={{ width: "100%", opacity: 0.6 }}
+                transition={{ delay: 0.3, duration: 1.07, ease: "easeInOut" }}
+                className="absolute top-0 h-2.5 bg-cyan-500 blur-lg"
+              />
+              {/* Tighter glow - full width, only downward */}
+              <motion.div
+                initial={{ width: "6rem", opacity: 0 }}
+                animate={{ width: "100%", opacity: 0.97 }}
+                transition={{ delay: 0.3, duration: 1.07, ease: "easeInOut" }}
+                className="absolute top-0 h-px bg-cyan-400 blur-md"
+              />
+              {/* Thin bright line at top edge - full width */}
+              <motion.div
+                initial={{ width: "10rem", opacity: 0 }}
+                animate={{ width: "100%", opacity: 1 }}
+                transition={{ delay: 0.3, duration: 1.07, ease: "easeInOut" }}
+                className="absolute top-0 h-px bg-cyan-400 opacity-50"
+              />
+            </div>
           </div>
         </div>
       </header>
