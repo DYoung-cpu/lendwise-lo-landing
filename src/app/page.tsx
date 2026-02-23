@@ -1,9 +1,11 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import LumaBar from "@/components/ui/luma-bar";
 import { ParallaxHero } from "@/components/ui/parallax-hero";
 import { AnimatedBackground } from "@/components/ui/animated-background";
+import { StarButton } from "@/components/ui/star-button";
 import Image from "next/image";
 import {
   Home,
@@ -30,18 +32,188 @@ import {
   Mail,
 } from "lucide-react";
 
+function RateTrackerSection() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+    console.log("Rate Tracker submission:", data);
+    setSubmitted(true);
+    form.reset();
+    setTimeout(() => setSubmitted(false), 5000);
+  }
+
+  const inputClass =
+    "w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400/50 transition-colors";
+
+  return (
+    <AnimatedBackground variant="green" intensity="medium" id="rate-tracker" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left side — info */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-emerald-400 text-sm font-medium mb-2">Rate Tracker</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+              Let Odin Watch the Market for You
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Enter your current loan details and Odin will monitor national rate
+              movements around the clock. When rates drop enough to save you real
+              money on a refinance, we&apos;ll reach out — no guesswork, no
+              obsessive rate-checking.
+            </p>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: TrendingUp,
+                  text: "24/7 rate monitoring powered by Odin AI",
+                },
+                {
+                  icon: Bell,
+                  text: "Instant alerts when refinancing makes sense",
+                },
+                {
+                  icon: Wallet,
+                  text: "Know exactly how much you could save each month",
+                },
+              ].map((item) => (
+                <li key={item.text} className="flex items-center gap-3 text-gray-200">
+                  <item.icon className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Right side — form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8"
+          >
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12"
+              >
+                <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Bell className="w-8 h-8 text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  You&apos;re on the list!
+                </h3>
+                <p className="text-gray-300">
+                  Odin will notify you when rates drop below your current rate.
+                </p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full Name"
+                    required
+                    className={inputClass}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className={inputClass}
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone"
+                    required
+                    className={inputClass}
+                  />
+                  <input
+                    type="text"
+                    name="propertyAddress"
+                    placeholder="Property Address"
+                    required
+                    className={inputClass}
+                  />
+                  <input
+                    type="number"
+                    name="currentRate"
+                    placeholder="Current Rate (%)"
+                    step="0.125"
+                    min="0"
+                    max="20"
+                    required
+                    className={inputClass}
+                  />
+                  <input
+                    type="number"
+                    name="loanAmount"
+                    placeholder="Current Loan Amount ($)"
+                    min="0"
+                    required
+                    className={inputClass}
+                  />
+                  <input
+                    type="number"
+                    name="propertyValue"
+                    placeholder="Estimated Property Value ($)"
+                    min="0"
+                    required
+                    className={inputClass}
+                  />
+                  <select
+                    name="creditScore"
+                    required
+                    defaultValue=""
+                    className={inputClass}
+                  >
+                    <option value="" disabled>
+                      Estimated Credit Score
+                    </option>
+                    <option value="740+">Excellent (740+)</option>
+                    <option value="700-739">Good (700-739)</option>
+                    <option value="660-699">Fair (660-699)</option>
+                    <option value="below-660">Below 660</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-xl transition-colors mt-2"
+                >
+                  Start Tracking My Rate
+                </button>
+              </form>
+            )}
+          </motion.div>
+        </div>
+      </div>
+    </AnimatedBackground>
+  );
+}
+
 export default function DavidYoungPage() {
   return (
     <main className="min-h-screen">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-[100]">
         <div className="relative bg-slate-950/80 backdrop-blur-xl">
-          <div className="flex items-center justify-center px-6">
+          <div className="relative flex items-center justify-end px-6 h-44">
+            {/* Logo — absolutely centered, immune to button width */}
             <motion.a
               href="#hero"
-              className="block overflow-hidden h-44"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="absolute left-1/2 block overflow-hidden h-44"
+              initial={{ opacity: 0, y: 20, x: "-50%" }}
+              animate={{ opacity: 1, y: 0, x: "-50%" }}
               transition={{ duration: 0.6 }}
             >
               <Image
@@ -52,6 +224,40 @@ export default function DavidYoungPage() {
                 className="h-[264px] w-auto -mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
             </motion.a>
+            <motion.div
+              className="flex gap-3 pr-[10%]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <StarButton
+                href="#apply"
+                lightColor="#d4af37"
+                backgroundColor="#0f172a"
+                duration={6}
+                className="h-10 px-5 text-sm"
+              >
+                Apply Now
+              </StarButton>
+              <StarButton
+                href="#about"
+                lightColor="#06b6d4"
+                backgroundColor="#0f172a"
+                duration={7}
+                className="h-10 px-5 text-sm"
+              >
+                Contact Me
+              </StarButton>
+              <StarButton
+                href="#rate-tracker"
+                lightColor="#10b981"
+                backgroundColor="#0f172a"
+                duration={8}
+                className="h-10 px-5 text-sm"
+              >
+                Rate Tracker
+              </StarButton>
+            </motion.div>
           </div>
           {/* Lamp beam at bottom edge of header */}
           <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
@@ -242,7 +448,10 @@ export default function DavidYoungPage() {
         </div>
       </AnimatedBackground>
 
-      {/* Section 5: Reviews / Social Proof */}
+      {/* Section 5: Rate Tracker */}
+      <RateTrackerSection />
+
+      {/* Section 6: Reviews / Social Proof */}
       <AnimatedBackground variant="light" intensity="subtle" id="reviews" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <p className="text-gold text-sm font-medium mb-2 text-center">

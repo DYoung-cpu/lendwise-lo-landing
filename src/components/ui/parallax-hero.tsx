@@ -3,13 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { StarButton } from './star-button';
 
 export function ParallaxHero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-slate-950 flex flex-col items-center justify-center px-6"
+      className="relative min-h-screen bg-slate-950 flex flex-col items-center justify-start px-6"
     >
       {/* Background glow orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -58,7 +57,7 @@ export function ParallaxHero() {
       </div>
 
       {/* Content - horizontal layout */}
-      <div className="relative z-10 max-w-6xl w-full mx-auto pt-40 md:pt-44">
+      <div className="relative z-10 max-w-6xl w-full mx-auto pt-44 md:pt-48">
         <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12">
           {/* Left side - Text & Info */}
           <div className="flex-1 text-center md:text-left">
@@ -105,43 +104,9 @@ export function ParallaxHero() {
               <span className="text-emerald-400">your most trusted asset</span>,
               and you deserve someone who treats it that way. No receptionist,
               no runaround —{' '}
-              <span className="text-amber-400">call me and reach me</span>.
+              <span className="text-amber-400">I&apos;m here when you need me</span>.
             </motion.p>
 
-            {/* Buttons */}
-            <motion.div
-              className="flex gap-4 flex-wrap justify-center md:justify-start mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <StarButton
-                href="#apply"
-                lightColor="#d4af37"
-                backgroundColor="#0f172a"
-                duration={6}
-              >
-                Apply Now
-              </StarButton>
-              <StarButton
-                href="#about"
-                lightColor="#06b6d4"
-                backgroundColor="#0f172a"
-                duration={7}
-              >
-                Contact Me
-              </StarButton>
-            </motion.div>
-
-            {/* LendWise branding */}
-            <motion.p
-              className="text-sm text-slate-500 tracking-wide opacity-60"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              Powered by <span className="text-gold">LendWise</span> Mortgage
-            </motion.p>
           </div>
 
           {/* Right side - Photo in horizontal rectangle */}
