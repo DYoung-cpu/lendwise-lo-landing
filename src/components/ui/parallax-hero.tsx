@@ -57,10 +57,10 @@ export function ParallaxHero() {
       </div>
 
       {/* Content - horizontal layout */}
-      <div className="relative z-10 max-w-6xl w-full mx-auto pt-44 md:pt-48">
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12">
+      <div className="relative z-10 max-w-6xl w-full mx-auto pt-56 md:pt-64">
+        <div className="flex flex-col md:flex-row items-center md:items-center justify-center gap-8" style={{ columnGap: '150px' }}>
           {/* Left side - Text & Info */}
-          <div className="flex-1 text-center md:text-left">
+          <div style={{ maxWidth: '28rem' }} className="text-center md:text-left">
             {/* Name */}
             <motion.h1
               className="text-4xl md:text-5xl font-bold text-white mb-2"

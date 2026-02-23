@@ -225,7 +225,7 @@ export default function DavidYoungPage() {
               />
             </motion.a>
             <motion.div
-              className="flex gap-3 pr-[10%] self-end pb-6"
+              className="flex gap-3 pr-4 self-end pb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -300,7 +300,6 @@ export default function DavidYoungPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-gold text-sm font-medium mb-2">About</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
               Why Work With Me
             </h2>
@@ -320,7 +319,7 @@ export default function DavidYoungPage() {
             </p>
           </motion.div>
 
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory px-[calc(50%-144px)]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               {
                 icon: UserCheck,
@@ -345,8 +344,11 @@ export default function DavidYoungPage() {
             ].map((card) => (
               <motion.div
                 key={card.title}
-                className="flex-shrink-0 w-72 bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-white/10 snap-center"
+                className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-white/10"
                 whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
               >
                 <card.icon className="w-12 h-12 mx-auto mb-4 text-gold" />
                 <h3 className="text-xl font-semibold mb-2 text-white">{card.title}</h3>
