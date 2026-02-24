@@ -12,18 +12,18 @@ interface NavItem {
 }
 
 const items: NavItem[] = [
-  { id: 0, icon: <Home size={24} />, label: "Home", href: "#hero" },
-  { id: 1, icon: <User size={24} />, label: "About", href: "#about" },
-  { id: 2, icon: <Grid3X3 size={24} />, label: "Loans", href: "#programs" },
-  { id: 3, icon: <Sparkles size={24} />, label: "Odin", href: "#odin" },
-  { id: 4, icon: <TrendingUp size={24} />, label: "Rates", href: "#rate-tracker" },
-  { id: 5, icon: <Star size={24} />, label: "Reviews", href: "#reviews" },
-  { id: 6, icon: <FileText size={24} />, label: "Apply", href: "#apply" },
+  { id: 0, icon: <Home size={20} />, label: "Home", href: "#hero" },
+  { id: 1, icon: <User size={20} />, label: "About", href: "#about" },
+  { id: 2, icon: <Grid3X3 size={20} />, label: "Loans", href: "#programs" },
+  { id: 3, icon: <Sparkles size={20} />, label: "Odin", href: "#odin" },
+  { id: 4, icon: <TrendingUp size={20} />, label: "Rates", href: "#rate-tracker" },
+  { id: 5, icon: <Star size={20} />, label: "Reviews", href: "#reviews" },
+  { id: 6, icon: <FileText size={20} />, label: "Apply", href: "#apply" },
 ];
 
-const BUTTON_WIDTH = 52;
-const GAP = 12;
-const PADDING = 16;
+const BUTTON_WIDTH = 44;
+const GAP = 4;
+const PADDING = 10;
 
 const LumaBar = () => {
   const [active, setActive] = useState(0);
@@ -60,7 +60,7 @@ const LumaBar = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden flex justify-center pb-2 pt-2 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent">
-      <div className="relative flex items-center justify-center gap-3 bg-slate-950 backdrop-blur-2xl rounded-full px-4 py-2 shadow-xl border border-slate-800 overflow-hidden">
+      <div className="relative flex items-center justify-center gap-1 bg-slate-950 backdrop-blur-2xl rounded-full px-2.5 py-2 shadow-xl border border-slate-800 overflow-hidden">
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -130,7 +130,7 @@ const LumaBar = () => {
                 onClick={() => handleClick(index, item.href)}
                 whileHover={{ scale: 1.1 }}
                 animate={{ scale: isActive ? 1.1 : 1 }}
-                className="flex items-center justify-center w-[52px] h-[36px] text-slate-400 hover:text-cyan-400 relative z-10"
+                className="flex items-center justify-center w-[44px] h-[32px] text-slate-400 hover:text-cyan-400 relative z-10"
               >
                 <span className={isActive ? "text-cyan-400" : ""}>{item.icon}</span>
               </motion.button>

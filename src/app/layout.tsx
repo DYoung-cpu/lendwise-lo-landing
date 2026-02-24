@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { loProfile } from "@/config/lo-profile";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "David Young | CMO & Partner at LendWise Mortgage",
-  description: "David Young - CMO & Partner at LendWise Mortgage Corporation. Your Mortgage. My Mission. Apply for a home loan with personalized service and cutting-edge technology.",
-  keywords: "mortgage, home loan, David Young, LendWise, CMO, apply, refinance, purchase",
+  title: loProfile.meta.title,
+  description: loProfile.meta.description,
+  keywords: loProfile.meta.keywords,
   openGraph: {
-    title: "David Young | LendWise Mortgage",
-    description: "Your Mortgage. My Mission. Work directly with a partner for a transparent, fast, and personal lending experience.",
+    title: loProfile.meta.ogTitle,
+    description: loProfile.meta.ogDescription,
     type: "website",
   },
 };

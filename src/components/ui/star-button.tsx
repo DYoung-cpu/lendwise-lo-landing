@@ -47,6 +47,8 @@ interface StarButtonProps {
   borderWidth?: number;
   className?: string;
   href?: string;
+  target?: string;
+  rel?: string;
   onClick?: () => void;
 }
 
@@ -59,6 +61,8 @@ export function StarButton({
   borderWidth = 2,
   className,
   href,
+  target,
+  rel,
   onClick,
   ...props
 }: StarButtonProps) {
@@ -116,6 +120,8 @@ export function StarButton({
     return (
       <a
         href={href}
+        target={target}
+        rel={rel}
         style={sharedStyles}
         ref={pathRef as React.RefObject<HTMLAnchorElement>}
         className={sharedClassName}

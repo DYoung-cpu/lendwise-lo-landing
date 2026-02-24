@@ -3,12 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { loProfile } from '@/config/lo-profile';
 
 export function ParallaxHero() {
   return (
     <section
       id="hero"
-      className="relative bg-slate-950 flex flex-col items-center justify-start px-6 pb-20"
+      className="relative bg-slate-950 flex flex-col items-center justify-start px-6 pb-12 md:pb-20"
     >
       {/* Background glow orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -57,18 +58,18 @@ export function ParallaxHero() {
       </div>
 
       {/* Content - horizontal layout */}
-      <div className="relative z-10 max-w-6xl w-full mx-auto pt-56 md:pt-64">
-        <div className="flex flex-col md:flex-row items-center md:items-center justify-center gap-8" style={{ columnGap: '150px' }}>
+      <div className="relative z-10 max-w-6xl w-full mx-auto pt-32 md:pt-56 lg:pt-64">
+        <div className="flex flex-col md:flex-row items-center md:items-center justify-center gap-8 md:gap-0" style={{ columnGap: '150px' }}>
           {/* Left side - Text & Info */}
-          <div style={{ maxWidth: '28rem' }} className="text-center md:text-left">
+          <div className="max-w-xs md:max-w-[28rem] text-center md:text-left">
             {/* Name */}
             <motion.h1
-              className="text-4xl md:text-5xl font-bold text-white mb-2"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              David Young
+              {loProfile.fullName}
             </motion.h1>
 
             {/* Title */}
@@ -78,7 +79,7 @@ export function ParallaxHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              CMO / Partner
+              {loProfile.title}
             </motion.p>
 
             {/* Tagline */}
@@ -88,18 +89,18 @@ export function ParallaxHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Your Mortgage. My Mission.
+              {loProfile.tagline}
             </motion.p>
 
             {/* Description */}
             <motion.p
-              className="text-lg text-slate-400 max-w-[500px] leading-[1.7] mb-8"
+              className="text-base md:text-lg text-slate-400 max-w-[500px] leading-[1.7] mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Over <span className="text-cyan-400">25 years</span> in the mortgage
-              business and hundreds of millions funded — but what drives me
+              Over <span className="text-cyan-400">{loProfile.heroExperience}</span> in the mortgage
+              business and {loProfile.heroAchievement} — but what drives me
               hasn&apos;t changed. Your home is{' '}
               <span className="text-emerald-400">your most trusted asset</span>,
               and you deserve someone who treats it that way. No receptionist,
@@ -116,10 +117,10 @@ export function ParallaxHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-2 border-[#C9A227] shadow-[0_0_60px_rgba(201,162,39,0.4)]">
+            <div className="w-56 h-64 sm:w-72 sm:h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-2 border-[#C9A227] shadow-[0_0_60px_rgba(201,162,39,0.4)]">
               <Image
-                src="/images/team/david-young.jpg"
-                alt="David Young"
+                src={loProfile.photoPath}
+                alt={loProfile.fullName}
                 width={400}
                 height={500}
                 className="w-full h-full object-cover object-top"

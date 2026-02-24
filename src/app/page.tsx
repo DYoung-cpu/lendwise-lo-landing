@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import LumaBar from "@/components/ui/luma-bar";
 import { ParallaxHero } from "@/components/ui/parallax-hero";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { StarButton } from "@/components/ui/star-button";
+import { loProfile } from "@/config/lo-profile";
 import Image from "next/image";
 import {
   Home,
@@ -32,6 +33,67 @@ import {
   Mail,
 } from "lucide-react";
 
+function ContactDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <StarButton
+        lightColor="#06b6d4"
+        backgroundColor="#0f172a"
+        duration={7}
+        className="h-10 px-5 text-sm"
+        onClick={() => setOpen(!open)}
+      >
+        Contact Me
+      </StarButton>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute top-full mt-2 right-0 bg-slate-900 border border-white/15 rounded-xl overflow-hidden shadow-xl min-w-[180px] z-50"
+        >
+          <a
+            href={`tel:${loProfile.phoneRaw}`}
+            className="flex items-center gap-3 px-4 py-3 text-sm text-white hover:bg-white/10 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            <Phone className="w-4 h-4 text-cyan-400" />
+            {loProfile.phone}
+          </a>
+          <a
+            href={`mailto:${loProfile.email}`}
+            className="flex items-center gap-3 px-4 py-3 text-sm text-white hover:bg-white/10 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            <Mail className="w-4 h-4 text-cyan-400" />
+            Email Me
+          </a>
+          <a
+            href={`sms:${loProfile.smsRaw}`}
+            className="flex items-center gap-3 px-4 py-3 text-sm text-white hover:bg-white/10 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            <MessageSquare className="w-4 h-4 text-cyan-400" />
+            Text Me
+          </a>
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
 function RateTrackerSection() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -49,7 +111,7 @@ function RateTrackerSection() {
     "w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400/50 transition-colors";
 
   return (
-    <AnimatedBackground variant="green" intensity="medium" id="rate-tracker" className="py-20 px-6">
+    <AnimatedBackground variant="green" intensity="medium" id="rate-tracker" className="py-12 md:py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left side — info */}
@@ -236,31 +298,33 @@ export default function DavidYoungPage() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-[100]">
         <div className="relative bg-slate-950/80 backdrop-blur-xl">
-          <div className="relative flex items-center justify-end px-6 h-44">
+          <div className="relative flex items-center justify-end px-6 h-24 md:h-44">
             {/* Logo — absolutely centered, immune to button width */}
             <motion.a
               href="#hero"
-              className="absolute left-1/2 block overflow-hidden h-44"
+              className="absolute left-1/2 block overflow-hidden h-24 md:h-44"
               initial={{ opacity: 0, y: 20, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="/images/lendwise-hero-logo.png"
-                alt="LendWise"
+                src={loProfile.company.heroLogoPath}
+                alt={loProfile.company.shortName}
                 width={250}
                 height={110}
-                className="h-[264px] w-auto -mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
+                className="h-[160px] md:h-[264px] w-auto -mt-6 md:-mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
             </motion.a>
             <motion.div
-              className="flex gap-3 pr-4 self-end pb-6"
+              className="hidden md:flex gap-3 pr-4 self-end pb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <StarButton
-                href="#apply"
+                href={loProfile.applicationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 lightColor="#d4af37"
                 backgroundColor="#0f172a"
                 duration={6}
@@ -268,15 +332,7 @@ export default function DavidYoungPage() {
               >
                 Apply Now
               </StarButton>
-              <StarButton
-                href="#about"
-                lightColor="#06b6d4"
-                backgroundColor="#0f172a"
-                duration={7}
-                className="h-10 px-5 text-sm"
-              >
-                Contact Me
-              </StarButton>
+              <ContactDropdown />
               <StarButton
                 href="#rate-tracker"
                 lightColor="#10b981"
@@ -321,7 +377,7 @@ export default function DavidYoungPage() {
       <ParallaxHero />
 
       {/* Section 2: About */}
-      <AnimatedBackground variant="green" intensity="medium" id="about" className="py-20 px-6">
+      <AnimatedBackground variant="green" intensity="medium" id="about" className="py-12 md:py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             className="text-center mb-12"
@@ -333,18 +389,7 @@ export default function DavidYoungPage() {
               Why Work With Me
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              I&apos;ve spent over 25 years in the mortgage industry, and I still
-              take pride in what real customer service means — staying ahead of
-              every new program, rate, and advantage that can benefit my clients.
-              I&apos;ve owned several successful mortgage businesses serving
-              different markets, but with LendWise, I&apos;ve built something
-              I&apos;ve always wanted: every program under one roof, powered by
-              the best pricing and technology in the business. Having funded
-              hundreds of millions in loans, I understand the weight of the
-              decisions homeowners face. Your home is your most trusted asset,
-              and that gravity is never lost on me. When you work with me,
-              you&apos;re working directly with an owner — no receptionist, no
-              middleman. I&apos;m always a phone call, text, or email away.
+              {loProfile.aboutBio}
             </p>
           </motion.div>
 
@@ -389,7 +434,7 @@ export default function DavidYoungPage() {
       </AnimatedBackground>
 
       {/* Section 3: Loan Programs */}
-      <AnimatedBackground variant="royal" intensity="medium" id="programs" className="py-20 px-6">
+      <AnimatedBackground variant="royal" intensity="medium" id="programs" className="py-12 md:py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4 text-white">
             Loan Programs
@@ -428,7 +473,7 @@ export default function DavidYoungPage() {
       </AnimatedBackground>
 
       {/* Section 4: Odin AI */}
-      <AnimatedBackground variant="dark" intensity="medium" id="odin" className="py-20 px-6 text-white">
+      <AnimatedBackground variant="dark" intensity="medium" id="odin" className="py-12 md:py-20 px-6 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gold text-sm font-medium mb-2">Introducing</p>
           <h2 className="text-4xl md:text-5xl font-semibold text-gold mb-4">
@@ -471,11 +516,7 @@ export default function DavidYoungPage() {
                 transition={{ delay: i * 0.05 }}
                 viewport={{ once: true }}
               >
-                {'img' in feature && feature.img ? (
-                  <Image src={feature.img} alt={feature.title} width={40} height={40} className="w-10 h-10 object-contain mb-4 mx-auto" />
-                ) : (
-                  'icon' in feature && feature.icon ? <feature.icon className="w-10 h-10 text-gold mb-4 mx-auto" /> : null
-                )}
+                <Image src={feature.img} alt={feature.title} width={40} height={40} className="w-10 h-10 object-contain mb-4 mx-auto" />
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-400">{feature.desc}</p>
               </motion.div>
@@ -488,7 +529,7 @@ export default function DavidYoungPage() {
       <RateTrackerSection />
 
       {/* Section 6: Reviews / Social Proof */}
-      <AnimatedBackground variant="light" intensity="subtle" id="reviews" className="py-20 px-6 bg-gray-50">
+      <AnimatedBackground variant="light" intensity="subtle" id="reviews" className="py-12 md:py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">
             What Clients Say
@@ -536,7 +577,7 @@ export default function DavidYoungPage() {
       </AnimatedBackground>
 
       {/* Section 6: Contact & Apply CTA */}
-      <AnimatedBackground variant="dark" intensity="strong" id="apply" className="py-20 px-6 text-white text-center">
+      <AnimatedBackground variant="dark" intensity="strong" id="apply" className="py-12 md:py-20 px-6 text-white text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-4">
           Ready to Get Pre-Approved?
         </h2>
@@ -545,7 +586,9 @@ export default function DavidYoungPage() {
         </p>
         <div className="mb-8">
           <StarButton
-            href="https://lendwisemtg.mymortgage-online.com/borrower-app/registration/?workFlowId=223023&action=login&dest=/loan-app/&siteId=1956469515"
+            href={loProfile.applicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             lightColor="#d4af37"
             backgroundColor="#0f172a"
             duration={6}
@@ -556,43 +599,43 @@ export default function DavidYoungPage() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-6 justify-center items-center text-sm text-gray-400 mb-6">
-          <a href="tel:+13109547772" className="flex items-center gap-2 hover:text-white transition-colors">
+          <a href={`tel:${loProfile.phoneRaw}`} className="flex items-center gap-2 hover:text-white transition-colors">
             <Phone className="w-4 h-4" />
-            (310) 954-7772
+            {loProfile.phone}
           </a>
-          <a href="mailto:david@lendwisemtg.com" className="flex items-center gap-2 hover:text-white transition-colors">
+          <a href={`mailto:${loProfile.email}`} className="flex items-center gap-2 hover:text-white transition-colors">
             <Mail className="w-4 h-4" />
-            david@lendwisemtg.com
+            {loProfile.email}
           </a>
         </div>
 
         <div className="flex gap-8 justify-center text-sm text-gray-500">
-          <span>NMLS #62043</span>
-          <span>DRE #01371572</span>
+          <span>NMLS #{loProfile.nmls}</span>
+          <span>DRE #{loProfile.dre}</span>
         </div>
       </AnimatedBackground>
 
       {/* Section 7: Footer */}
       <footer className="py-12 px-6 bg-gray-100 text-center pb-32 md:pb-12">
         <Image
-          src="/images/lendwise-text-only.png"
-          alt="LendWise Mortgage"
+          src={loProfile.company.footerLogoPath}
+          alt={loProfile.company.shortName}
           width={200}
           height={49}
           className="mx-auto mb-4"
         />
         <p className="text-gray-500 text-sm mb-4">
-          21800 Oxnard Street #220
+          {loProfile.company.address}
           <br />
-          Woodland Hills, CA 91367
+          {loProfile.company.city}, {loProfile.company.state} {loProfile.company.zip}
         </p>
         <p className="text-gray-500 text-sm mb-4">
-          Phone: <a href="tel:+18184771073" className="hover:text-gray-700">(818) 477-1073</a>
+          Phone: <a href={`tel:${loProfile.company.phoneRaw}`} className="hover:text-gray-700">{loProfile.company.phone}</a>
           <br />
-          Email: <a href="mailto:support@lendwisemtg.com" className="hover:text-gray-700">support@lendwisemtg.com</a>
+          Email: <a href={`mailto:${loProfile.company.email}`} className="hover:text-gray-700">{loProfile.company.email}</a>
         </p>
         <p className="text-gray-500 text-sm mb-4">
-          NMLS ID: #2702455 | DRE ID: #02282825
+          NMLS ID: #{loProfile.company.nmls} | DRE ID: #{loProfile.company.dre}
           <br />
           Equal Housing Lender
         </p>
@@ -600,10 +643,10 @@ export default function DavidYoungPage() {
           <a href="#" className="hover:text-gray-700">Privacy</a>
           <a href="#" className="hover:text-gray-700">Terms</a>
           <a href="#" className="hover:text-gray-700">Licensing</a>
-          <a href="mailto:support@lendwisemtg.com" className="hover:text-gray-700">Contact</a>
+          <a href={`mailto:${loProfile.company.email}`} className="hover:text-gray-700">Contact</a>
         </div>
         <p className="text-gray-400 text-sm">
-          &copy; 2026 LendWise Mortgage Corporation. All rights reserved.
+          &copy; {loProfile.company.copyrightYear} {loProfile.company.name}. All rights reserved.
         </p>
       </footer>
 
