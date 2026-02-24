@@ -8,7 +8,7 @@ export function ParallaxHero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-slate-950 flex flex-col items-center justify-start px-6"
+      className="relative bg-slate-950 flex flex-col items-center justify-start px-6 pb-20"
     >
       {/* Background glow orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

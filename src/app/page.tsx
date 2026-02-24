@@ -58,7 +58,7 @@ function RateTrackerSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-emerald-400 text-sm font-medium mb-2">Rate Tracker</p>
+            <p className="text-emerald-400 text-lg font-semibold mb-2">Rate Tracker</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
               Let Odin Watch the Market for You
             </h2>
@@ -184,6 +184,35 @@ function RateTrackerSection() {
                     <option value="700-739">Good (700-739)</option>
                     <option value="660-699">Fair (660-699)</option>
                     <option value="below-660">Below 660</option>
+                  </select>
+                  <select
+                    name="occupancyType"
+                    required
+                    defaultValue=""
+                    className={inputClass}
+                  >
+                    <option value="" disabled>
+                      Occupancy Type
+                    </option>
+                    <option value="owner-occupied">Owner Occupied</option>
+                    <option value="investment">Investment Property</option>
+                    <option value="second-home">Second Home</option>
+                  </select>
+                  <select
+                    name="currentLoanProgram"
+                    required
+                    defaultValue=""
+                    className={inputClass}
+                  >
+                    <option value="" disabled>
+                      Current Loan Program
+                    </option>
+                    <option value="conventional">Conventional</option>
+                    <option value="fha">FHA</option>
+                    <option value="va">VA</option>
+                    <option value="jumbo">Jumbo</option>
+                    <option value="usda">USDA</option>
+                    <option value="other">Other / Not Sure</option>
                   </select>
                 </div>
                 <button
@@ -322,35 +351,35 @@ export default function DavidYoungPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               {
-                icon: UserCheck,
+                img: "/images/icons/person-check.png",
                 title: "Direct Access",
                 desc: "Work directly with a partner, not a call center. I'm personally invested in getting your loan closed right.",
               },
               {
-                icon: Cpu,
+                img: "/images/icons/chip.png",
                 title: "Technology Forward",
                 desc: "AI-powered lending with Odin, our intelligent mortgage assistant. Faster approvals, smarter processing.",
               },
               {
-                icon: Globe,
+                img: "/images/icons/globe.png",
                 title: "Nationwide Reach",
                 desc: "Licensed and lending across multiple states. Bringing modern mortgage solutions wherever you are.",
               },
               {
-                icon: Heart,
+                img: "/images/icons/chip-dark.png",
                 title: "Personal Touch",
                 desc: "I know my clients by name, not number. Your biggest investment deserves care and precision.",
               },
             ].map((card) => (
               <motion.div
                 key={card.title}
-                className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-white/10"
+                className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-[rgba(201,162,39,0.25)] shadow-[0_0_20px_rgba(201,162,39,0.12)]"
                 whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <card.icon className="w-12 h-12 mx-auto mb-4 text-gold" />
+                <Image src={card.img} alt={card.title} width={48} height={48} className="w-12 h-12 mx-auto mb-4 object-contain" />
                 <h3 className="text-xl font-semibold mb-2 text-white">{card.title}</h3>
                 <p className="text-sm text-gray-300">{card.desc}</p>
               </motion.div>
@@ -360,41 +389,38 @@ export default function DavidYoungPage() {
       </AnimatedBackground>
 
       {/* Section 3: Loan Programs */}
-      <AnimatedBackground variant="light" intensity="subtle" id="programs" className="py-20 px-6 bg-white">
+      <AnimatedBackground variant="royal" intensity="medium" id="programs" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gold text-sm font-medium mb-2 text-center">
-            Products
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4 text-white">
             Loan Programs
           </h2>
-          <p className="text-gray-600 text-center mb-12">
+          <p className="text-gray-300 text-center mb-12">
             The right loan for every borrower.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { icon: Home, title: "Conventional", desc: "Traditional financing" },
-              { icon: Castle, title: "Jumbo", desc: "Beyond conforming limits" },
-              { icon: Landmark, title: "FHA", desc: "Low down payment" },
-              { icon: Medal, title: "VA", desc: "Veterans & service members" },
-              { icon: BarChart3, title: "DSCR", desc: "Investment properties" },
-              { icon: ClipboardList, title: "Bank Statement", desc: "Self-employed" },
-              { icon: Hammer, title: "Fix & Flip", desc: "Short-term investor" },
-              { icon: Key, title: "First Time Buyer", desc: "New homeowners" },
-              { icon: Wallet, title: "HELOCs", desc: "Home equity access" },
+              { img: "/images/icons/programs/conventional.png", title: "Conventional", desc: "Traditional financing" },
+              { img: "/images/icons/programs/jumbo.png", title: "Jumbo", desc: "Beyond conforming limits" },
+              { img: "/images/icons/programs/fha.png", title: "FHA", desc: "Low down payment" },
+              { img: "/images/icons/programs/va.png", title: "VA", desc: "Veterans & service members" },
+              { img: "/images/icons/programs/dscr.png", title: "DSCR", desc: "Investment properties" },
+              { img: "/images/icons/programs/bank-statement.png", title: "Bank Statement", desc: "Self-employed" },
+              { img: "/images/icons/programs/fix-flip.png", title: "Fix & Flip", desc: "Short-term investor" },
+              { img: "/images/icons/programs/first-time-buyer.png", title: "First Time Buyer", desc: "New homeowners" },
+              { img: "/images/icons/programs/heloc.png", title: "HELOCs", desc: "Home equity access" },
             ].map((program, i) => (
               <motion.div
                 key={program.title}
-                className="bg-gray-50 p-6 rounded-2xl text-center"
+                className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-white/10"
                 whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 viewport={{ once: true }}
               >
-                <program.icon className="w-8 h-8 text-gold mx-auto mb-3" />
-                <h3 className="font-semibold mb-1">{program.title}</h3>
-                <p className="text-sm text-gray-500">{program.desc}</p>
+                <Image src={program.img} alt={program.title} width={48} height={48} className="w-12 h-12 mx-auto mb-3 object-contain" />
+                <h3 className="font-semibold mb-1 text-white">{program.title}</h3>
+                <p className="text-sm text-gray-400">{program.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -406,7 +432,7 @@ export default function DavidYoungPage() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gold text-sm font-medium mb-2">Introducing</p>
           <h2 className="text-4xl md:text-5xl font-semibold text-gold mb-4">
-            Odin
+            Odin AI
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Your AI mortgage assistant. Instant pre-approvals, real-time
@@ -427,21 +453,29 @@ export default function DavidYoungPage() {
           </div>
 
           {/* Features Carousel */}
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory px-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { icon: Zap, title: "Instant Pre-Approvals", desc: "Get your pre-approval letter in seconds, not days." },
-              { icon: TrendingUp, title: "Smart Rate Tracking", desc: "Odin monitors the market 24/7 for savings opportunities." },
-              { icon: MapPinned, title: "Real-Time Tracking", desc: "Always know where your loan is in the process." },
-              { icon: FileText, title: "Document Intelligence", desc: "Upload once, never be asked twice." },
-              { icon: MessageSquare, title: "Talk Your Way", desc: "Text, email, or chat - Odin remembers." },
-              { icon: Bell, title: "Proactive Updates", desc: "Know what's needed before you ask." },
-            ].map((feature) => (
+              { img: "/images/icons/odin/instant-preapproval.png", title: "Instant Pre-Approvals", desc: "Get your pre-approval letter in seconds, not days." },
+              { img: "/images/icons/odin/smart-rate.png", title: "Smart Rate Tracking", desc: "Odin monitors the market 24/7 for savings opportunities." },
+              { img: "/images/icons/odin/realtime-tracking.png", title: "Real-Time Loan Tracking", desc: "Always know where your loan is in the process." },
+              { img: "/images/icons/odin/document-intelligence.png", title: "Document Intelligence", desc: "Upload once, never be asked twice." },
+              { img: "/images/icons/odin/talk-your-way.png", title: "Talk Your Way", desc: "Text, email, or chat - Odin remembers." },
+              { img: "/images/icons/odin/proactive-updates.png", title: "Proactive Updates", desc: "Know what's needed before you ask." },
+            ].map((feature, i) => (
               <motion.div
                 key={feature.title}
-                className="flex-shrink-0 w-72 bg-white/5 backdrop-blur p-6 rounded-2xl snap-center"
+                className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-white/10"
                 whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
               >
-                <feature.icon className="w-10 h-10 text-gold mb-4" />
+                {'img' in feature && feature.img ? (
+                  <Image src={feature.img} alt={feature.title} width={40} height={40} className="w-10 h-10 object-contain mb-4 mx-auto" />
+                ) : (
+                  'icon' in feature && feature.icon ? <feature.icon className="w-10 h-10 text-gold mb-4 mx-auto" /> : null
+                )}
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-400">{feature.desc}</p>
               </motion.div>
@@ -456,9 +490,6 @@ export default function DavidYoungPage() {
       {/* Section 6: Reviews / Social Proof */}
       <AnimatedBackground variant="light" intensity="subtle" id="reviews" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gold text-sm font-medium mb-2 text-center">
-            Testimonials
-          </p>
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">
             What Clients Say
           </h2>
@@ -506,26 +537,28 @@ export default function DavidYoungPage() {
 
       {/* Section 6: Contact & Apply CTA */}
       <AnimatedBackground variant="dark" intensity="strong" id="apply" className="py-20 px-6 text-white text-center">
-        <p className="text-gold text-sm font-medium mb-2">Get Started</p>
         <h2 className="text-3xl md:text-4xl font-semibold mb-4">
           Ready to Get Pre-Approved?
         </h2>
         <p className="text-gray-400 mb-8 max-w-xl mx-auto">
           Start your application in minutes. I&apos;ll personally guide you through every step.
         </p>
-        <a
-          href="https://lendwisemtg.mymortgage-online.com/borrower-app/registration/?workFlowId=223023&action=login&dest=/loan-app/&siteId=1956469515"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-4 bg-gold text-black font-semibold rounded-full hover:bg-yellow-500 transition-colors mb-8"
-        >
-          Apply Now
-        </a>
+        <div className="mb-8">
+          <StarButton
+            href="https://lendwisemtg.mymortgage-online.com/borrower-app/registration/?workFlowId=223023&action=login&dest=/loan-app/&siteId=1956469515"
+            lightColor="#d4af37"
+            backgroundColor="#0f172a"
+            duration={6}
+            className="h-12 px-8 text-base"
+          >
+            Apply Now
+          </StarButton>
+        </div>
 
         <div className="flex flex-col md:flex-row gap-6 justify-center items-center text-sm text-gray-400 mb-6">
-          <a href="tel:+18189177740" className="flex items-center gap-2 hover:text-white transition-colors">
+          <a href="tel:+13109547772" className="flex items-center gap-2 hover:text-white transition-colors">
             <Phone className="w-4 h-4" />
-            (818) 917-7740
+            (310) 954-7772
           </a>
           <a href="mailto:david@lendwisemtg.com" className="flex items-center gap-2 hover:text-white transition-colors">
             <Mail className="w-4 h-4" />
@@ -534,22 +567,32 @@ export default function DavidYoungPage() {
         </div>
 
         <div className="flex gap-8 justify-center text-sm text-gray-500">
-          <span>NMLS #2436537</span>
-          <span>Company NMLS #2581507</span>
+          <span>NMLS #62043</span>
+          <span>DRE #01371572</span>
         </div>
       </AnimatedBackground>
 
       {/* Section 7: Footer */}
       <footer className="py-12 px-6 bg-gray-100 text-center pb-32 md:pb-12">
-        <p className="text-2xl font-semibold mb-2">
-          <span className="text-gold">L</span>end
-          <span className="text-gold">W</span>ise
-        </p>
-        <p className="text-sm text-gray-600 mb-4">David Young | CMO &amp; Partner</p>
+        <Image
+          src="/images/lendwise-text-only.png"
+          alt="LendWise Mortgage"
+          width={200}
+          height={49}
+          className="mx-auto mb-4"
+        />
         <p className="text-gray-500 text-sm mb-4">
-          LendWise Mortgage Corporation | NMLS #2581507
+          21800 Oxnard Street #220
           <br />
-          21800 Oxnard Street, Woodland Hills, CA 91367
+          Woodland Hills, CA 91367
+        </p>
+        <p className="text-gray-500 text-sm mb-4">
+          Phone: <a href="tel:+18184771073" className="hover:text-gray-700">(818) 477-1073</a>
+          <br />
+          Email: <a href="mailto:support@lendwisemtg.com" className="hover:text-gray-700">support@lendwisemtg.com</a>
+        </p>
+        <p className="text-gray-500 text-sm mb-4">
+          NMLS ID: #2702455 | DRE ID: #02282825
           <br />
           Equal Housing Lender
         </p>
@@ -557,10 +600,10 @@ export default function DavidYoungPage() {
           <a href="#" className="hover:text-gray-700">Privacy</a>
           <a href="#" className="hover:text-gray-700">Terms</a>
           <a href="#" className="hover:text-gray-700">Licensing</a>
-          <a href="mailto:david@lendwisemtg.com" className="hover:text-gray-700">Contact</a>
+          <a href="mailto:support@lendwisemtg.com" className="hover:text-gray-700">Contact</a>
         </div>
         <p className="text-gray-400 text-sm">
-          &copy; 2025 LendWise Mortgage Corporation. All rights reserved.
+          &copy; 2026 LendWise Mortgage Corporation. All rights reserved.
         </p>
       </footer>
 

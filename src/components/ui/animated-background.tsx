@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface AnimatedBackgroundProps {
-  variant?: 'dark' | 'light' | 'green';
+  variant?: 'dark' | 'light' | 'green' | 'royal';
   intensity?: 'subtle' | 'medium' | 'strong';
   children: React.ReactNode;
   className?: string;
@@ -240,6 +240,109 @@ export function AnimatedBackground({
         <div
           className="absolute bottom-0 left-0 right-0 h-32 z-20 pointer-events-none"
           style={{ background: 'linear-gradient(to top, #041f1a, transparent)' }}
+        />
+
+        <div data-parallax-content className="relative z-10">
+          {children}
+        </div>
+      </section>
+    );
+  }
+
+  if (variant === 'royal') {
+    return (
+      <section
+        ref={sectionRef}
+        id={id}
+        className={`relative overflow-hidden ${className}`}
+        style={{ backgroundColor: '#0a1a4a' }}
+      >
+        <div
+          className="absolute top-0 left-0 right-0 h-32 z-20 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, #0a1a4a, transparent)' }}
+        />
+
+        <div data-parallax-bg className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full"
+            style={{
+              background: `radial-gradient(circle, rgba(30,64,175,${0.4 * opacityMultiplier}) 0%, rgba(37,99,235,${0.2 * opacityMultiplier}) 30%, transparent 60%)`,
+            }}
+            animate={{
+              scale: [1, 1.15, 1],
+              opacity: [0.8, 1, 0.8],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute top-1/4 -left-40 w-[600px] h-[600px] rounded-full"
+            style={{
+              background: `radial-gradient(circle, rgba(59,130,246,${0.2 * opacityMultiplier}) 0%, transparent 50%)`,
+            }}
+            animate={{
+              x: [0, 40, 0],
+              y: [0, -30, 0],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute top-1/3 -right-32 w-[500px] h-[500px] rounded-full"
+            style={{
+              background: `radial-gradient(circle, rgba(212,175,55,${0.12 * opacityMultiplier}) 0%, transparent 50%)`,
+            }}
+            animate={{
+              x: [0, -30, 0],
+              y: [0, 20, 0],
+              opacity: [0.6, 0.9, 0.6],
+            }}
+            transition={{
+              duration: 14,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute -bottom-40 left-1/4 w-[700px] h-[500px] rounded-full"
+            style={{
+              background: `radial-gradient(ellipse, rgba(30,64,175,${0.2 * opacityMultiplier}) 0%, transparent 50%)`,
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full"
+            style={{
+              background: `radial-gradient(ellipse, rgba(17,24,115,${0.3 * opacityMultiplier}) 0%, transparent 60%)`,
+            }}
+            animate={{
+              scale: [1, 1.08, 1],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        </div>
+
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 z-20 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, #0a1a4a, transparent)' }}
         />
 
         <div data-parallax-content className="relative z-10">
