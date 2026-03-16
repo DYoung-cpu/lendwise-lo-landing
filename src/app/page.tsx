@@ -31,6 +31,12 @@ import {
   Star,
   Phone,
   Mail,
+  Download,
+  Monitor,
+  Smartphone,
+  QrCode,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 function ContactDropdown() {
@@ -94,6 +100,165 @@ function ContactDropdown() {
   );
 }
 
+function VCardDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const vcardPath = `/${loProfile.firstName.toLowerCase()}-${loProfile.lastName.toLowerCase()}.vcf`;
+
+  function downloadVCard() {
+    const link = document.createElement("a");
+    link.href = vcardPath;
+    link.download = `${loProfile.fullName}.vcf`;
+    link.click();
+    setOpen(false);
+  }
+
+  function generateQRCode() {
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(window.location.origin + vcardPath)}`;
+    window.open(qrUrl, "_blank");
+    setOpen(false);
+  }
+
+  const itemClass = "flex items-center gap-3 px-4 py-3 text-sm text-white hover:bg-white/10 transition-colors w-full text-left";
+
+  return (
+    <div ref={ref} className="relative">
+      <StarButton
+        lightColor="#8b5cf6"
+        backgroundColor="#0f172a"
+        duration={7}
+        className="h-10 px-5 text-sm"
+        onClick={() => setOpen(!open)}
+      >
+        Download vCard
+      </StarButton>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute top-full mt-2 right-0 bg-slate-900 border border-white/15 rounded-xl overflow-hidden shadow-xl min-w-[240px] z-50"
+        >
+          <button onClick={downloadVCard} className={itemClass}>
+            <Monitor className="w-4 h-4 text-cyan-400" />
+            <div>
+              <div className="font-medium">Download for Outlook</div>
+              <div className="text-xs text-gray-400">Optimized for desktop Outlook</div>
+            </div>
+          </button>
+          <button onClick={downloadVCard} className={itemClass}>
+            <Mail className="w-4 h-4 text-cyan-400" />
+            <div>
+              <div className="font-medium">Add to Gmail</div>
+              <div className="text-xs text-gray-400">Auto-download + import guide</div>
+            </div>
+          </button>
+          <button onClick={downloadVCard} className={itemClass}>
+            <Smartphone className="w-4 h-4 text-cyan-400" />
+            <div>
+              <div className="font-medium">Download for Mobile</div>
+              <div className="text-xs text-gray-400">Optimized for phones</div>
+            </div>
+          </button>
+          <button onClick={generateQRCode} className={itemClass}>
+            <QrCode className="w-4 h-4 text-cyan-400" />
+            <div>
+              <div className="font-medium">Generate QR Code</div>
+              <div className="text-xs text-gray-400">Scan to add contact</div>
+            </div>
+          </button>
+          <button onClick={downloadVCard} className={itemClass}>
+            <Download className="w-4 h-4 text-cyan-400" />
+            <div>
+              <div className="font-medium">Standard vCard</div>
+              <div className="text-xs text-gray-400">Universal format</div>
+            </div>
+          </button>
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
+
+function ReviewCarousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  function checkScroll() {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", checkScroll);
+    checkScroll();
+    return () => el.removeEventListener("scroll", checkScroll);
+  }, []);
+
+  function scroll(dir: "left" | "right") {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -340 : 340, behavior: "smooth" });
+  }
+
+  return (
+    <div className="relative">
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg rounded-full p-2 hover:bg-white transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5 text-gray-700" />
+        </button>
+      )}
+      {canScrollRight && (
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-lg rounded-full p-2 hover:bg-white transition-colors"
+        >
+          <ChevronRight className="w-5 h-5 text-gray-700" />
+        </button>
+      )}
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-auto scrollbar-hide px-8 pb-4 snap-x snap-mandatory"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
+        {loProfile.reviews.map((review) => (
+          <div
+            key={review.name}
+            className="bg-white p-6 rounded-2xl shadow-sm min-w-[300px] max-w-[320px] flex-shrink-0 snap-start"
+          >
+            <div className="flex gap-1 mb-3">
+              {Array.from({ length: review.rating }).map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <p className="text-gray-700 mb-4 italic">&ldquo;{review.text}&rdquo;</p>
+            <p className="font-semibold text-sm text-gray-900">{review.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function RateTrackerSection() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -122,23 +287,24 @@ function RateTrackerSection() {
           >
             <p className="text-emerald-400 text-lg font-semibold mb-2">Rate Tracker</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-              Let Odin Watch the Market for You
+              I Watch the Market So You Don&apos;t Have To
             </h2>
             <p className="text-gray-300 mb-8 leading-relaxed">
-              Enter your current loan details and Odin will monitor national rate
-              movements around the clock. When rates drop enough to save you real
-              money on a refinance, we&apos;ll reach out — no guesswork, no
-              obsessive rate-checking.
+              With the help of Odin AI, I can monitor live rate adjustments around
+              the clock and determine if an improvement will actually benefit you.
+              Enter your current loan details and I&apos;ll reach out the moment
+              refinancing makes real financial sense — no guesswork, no obsessive
+              rate-checking.
             </p>
             <ul className="space-y-4">
               {[
                 {
                   icon: TrendingUp,
-                  text: "24/7 rate monitoring powered by Odin AI",
+                  text: "24/7 AI-powered rate monitoring on your behalf",
                 },
                 {
                   icon: Bell,
-                  text: "Instant alerts when refinancing makes sense",
+                  text: "I\u2019ll contact you when refinancing makes sense",
                 },
                 {
                   icon: Wallet,
@@ -173,7 +339,7 @@ function RateTrackerSection() {
                   You&apos;re on the list!
                 </h3>
                 <p className="text-gray-300">
-                  Odin will notify you when rates drop below your current rate.
+                  I&apos;ll notify you personally when rates drop below your current rate.
                 </p>
               </motion.div>
             ) : (
@@ -333,6 +499,7 @@ export default function DavidYoungPage() {
                 Apply Now
               </StarButton>
               <ContactDropdown />
+              <VCardDropdown />
               <StarButton
                 href="#rate-tracker"
                 lightColor="#10b981"
@@ -394,28 +561,7 @@ export default function DavidYoungPage() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              {
-                img: "/images/icons/person-check.png",
-                title: "Direct Access",
-                desc: "Work directly with a partner, not a call center. I'm personally invested in getting your loan closed right.",
-              },
-              {
-                img: "/images/icons/chip.png",
-                title: "Technology Forward",
-                desc: "AI-powered lending with Odin, our intelligent mortgage assistant. Faster approvals, smarter processing.",
-              },
-              {
-                img: "/images/icons/globe.png",
-                title: "Nationwide Reach",
-                desc: "Licensed and lending across multiple states. Bringing modern mortgage solutions wherever you are.",
-              },
-              {
-                img: "/images/icons/chip-dark.png",
-                title: "Personal Touch",
-                desc: "I know my clients by name, not number. Your biggest investment deserves care and precision.",
-              },
-            ].map((card) => (
+            {loProfile.aboutCards.map((card) => (
               <motion.div
                 key={card.title}
                 className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-[rgba(201,162,39,0.25)] shadow-[0_0_20px_rgba(201,162,39,0.12)]"
@@ -443,17 +589,7 @@ export default function DavidYoungPage() {
             The right loan for every borrower.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { img: "/images/icons/programs/conventional.png", title: "Conventional", desc: "Traditional financing" },
-              { img: "/images/icons/programs/jumbo.png", title: "Jumbo", desc: "Beyond conforming limits" },
-              { img: "/images/icons/programs/fha.png", title: "FHA", desc: "Low down payment" },
-              { img: "/images/icons/programs/va.png", title: "VA", desc: "Veterans & service members" },
-              { img: "/images/icons/programs/dscr.png", title: "DSCR", desc: "Investment properties" },
-              { img: "/images/icons/programs/bank-statement.png", title: "Bank Statement", desc: "Self-employed" },
-              { img: "/images/icons/programs/fix-flip.png", title: "Fix & Flip", desc: "Short-term investor" },
-              { img: "/images/icons/programs/first-time-buyer.png", title: "First Time Buyer", desc: "New homeowners" },
-              { img: "/images/icons/programs/heloc.png", title: "HELOCs", desc: "Home equity access" },
-            ].map((program, i) => (
+            {loProfile.programs.map((program, i) => (
               <motion.div
                 key={program.title}
                 className="bg-white/5 backdrop-blur p-6 rounded-2xl text-center border border-white/10"
@@ -493,7 +629,7 @@ export default function DavidYoungPage() {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="/videos/wisr-owl.mp4" type="video/mp4" />
+              <source src="/videos/owl-video.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -501,11 +637,11 @@ export default function DavidYoungPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
               { img: "/images/icons/odin/instant-preapproval.png", title: "Instant Pre-Approvals", desc: "Get your pre-approval letter in seconds, not days." },
-              { img: "/images/icons/odin/smart-rate.png", title: "Smart Rate Tracking", desc: "Odin monitors the market 24/7 for savings opportunities." },
+              { img: "/images/icons/odin/smart-rate.png", title: "Smart Rate Tracking", desc: "AI monitors the market 24/7 so I can act on savings opportunities for you." },
               { img: "/images/icons/odin/realtime-tracking.png", title: "Real-Time Loan Tracking", desc: "Always know where your loan is in the process." },
               { img: "/images/icons/odin/document-intelligence.png", title: "Document Intelligence", desc: "Upload once, never be asked twice." },
-              { img: "/images/icons/odin/talk-your-way.png", title: "Talk Your Way", desc: "Text, email, or chat - Odin remembers." },
-              { img: "/images/icons/odin/proactive-updates.png", title: "Proactive Updates", desc: "Know what's needed before you ask." },
+              { img: "/images/icons/odin/talk-your-way.png", title: "Talk Your Way", desc: "Text, email, or chat \u2014 your preference, always remembered." },
+              { img: "/images/icons/odin/proactive-updates.png", title: "Proactive Updates", desc: "Know what\u2019s needed before you ask." },
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -537,46 +673,11 @@ export default function DavidYoungPage() {
           <p className="text-gray-600 text-center mb-12">
             Real experiences from real homeowners.
           </p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Sarah M.",
-                text: "David made our first home purchase feel effortless. He was available at every step and got us an incredible rate.",
-                rating: 5,
-              },
-              {
-                name: "James & Lisa R.",
-                text: "We refinanced with David and saved over $400/month. His tech-forward approach made the paperwork painless.",
-                rating: 5,
-              },
-              {
-                name: "Michael T.",
-                text: "As a self-employed borrower, I thought getting a mortgage would be impossible. David found the perfect program for me.",
-                rating: 5,
-              },
-            ].map((review) => (
-              <motion.div
-                key={review.name}
-                className="bg-white p-6 rounded-2xl shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex gap-1 mb-3">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">&ldquo;{review.text}&rdquo;</p>
-                <p className="font-semibold text-sm text-gray-900">{review.name}</p>
-              </motion.div>
-            ))}
-          </div>
+          <ReviewCarousel />
         </div>
       </AnimatedBackground>
 
-      {/* Section 6: Contact & Apply CTA */}
+      {/* Section 7: Contact & Apply CTA */}
       <AnimatedBackground variant="dark" intensity="strong" id="apply" className="py-12 md:py-20 px-6 text-white text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-4">
           Ready to Get Pre-Approved?
@@ -615,7 +716,7 @@ export default function DavidYoungPage() {
         </div>
       </AnimatedBackground>
 
-      {/* Section 7: Footer */}
+      {/* Section 8: Footer */}
       <footer className="py-12 px-6 bg-gray-100 text-center pb-32 md:pb-12">
         <Image
           src={loProfile.company.footerLogoPath}
@@ -650,7 +751,7 @@ export default function DavidYoungPage() {
         </p>
       </footer>
 
-      {/* Section 8: Mobile Tab Bar */}
+      {/* Section 9: Mobile Tab Bar */}
       <LumaBar />
     </main>
   );
