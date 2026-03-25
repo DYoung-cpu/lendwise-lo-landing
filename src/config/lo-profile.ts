@@ -153,8 +153,7 @@ export const loProfile = {
   },
 
   // ── Application Link ─────────────────────────────────────
-  applicationUrl:
-    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=dyoung&workFlowId=233348",
+  applicationUrl: "https://davidyoung.teamlendwise.com",
 
   // ── Page Metadata ────────────────────────────────────────
   meta: {
