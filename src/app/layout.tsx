@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://davidyoung.lendwisemtg.com"),
   title: loProfile.meta.title,
   description: loProfile.meta.description,
   keywords: loProfile.meta.keywords,
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     title: loProfile.meta.ogTitle,
     description: loProfile.meta.ogDescription,
     type: "website",
+    images: [{ url: "/images/team/david-young.jpg", width: 1200, height: 630 }],
   },
 };
 

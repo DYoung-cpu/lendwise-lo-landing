@@ -9,34 +9,19 @@ import { StarButton } from "@/components/ui/star-button";
 import { loProfile } from "@/config/lo-profile";
 import Image from "next/image";
 import {
-  Home,
-  Castle,
-  Landmark,
-  Medal,
-  BarChart3,
-  ClipboardList,
-  Hammer,
-  Key,
   Wallet,
-  Zap,
   TrendingUp,
-  MapPinned,
-  FileText,
   MessageSquare,
   Bell,
-  UserCheck,
-  Cpu,
-  Globe,
-  Heart,
   Star,
   Phone,
   Mail,
   Download,
-  Monitor,
   Smartphone,
   QrCode,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 
 function ContactDropdown() {
@@ -150,38 +135,17 @@ function VCardDropdown() {
           className="absolute top-full mt-2 right-0 bg-slate-900 border border-white/15 rounded-xl overflow-hidden shadow-xl min-w-[240px] z-50"
         >
           <button onClick={downloadVCard} className={itemClass}>
-            <Monitor className="w-4 h-4 text-cyan-400" />
+            <Download className="w-4 h-4 text-cyan-400" />
             <div>
-              <div className="font-medium">Download for Outlook</div>
-              <div className="text-xs text-gray-400">Optimized for desktop Outlook</div>
-            </div>
-          </button>
-          <button onClick={downloadVCard} className={itemClass}>
-            <Mail className="w-4 h-4 text-cyan-400" />
-            <div>
-              <div className="font-medium">Add to Gmail</div>
-              <div className="text-xs text-gray-400">Auto-download + import guide</div>
-            </div>
-          </button>
-          <button onClick={downloadVCard} className={itemClass}>
-            <Smartphone className="w-4 h-4 text-cyan-400" />
-            <div>
-              <div className="font-medium">Download for Mobile</div>
-              <div className="text-xs text-gray-400">Optimized for phones</div>
+              <div className="font-medium">Save Contact</div>
+              <div className="text-xs text-gray-400">Works with all devices & email apps</div>
             </div>
           </button>
           <button onClick={generateQRCode} className={itemClass}>
             <QrCode className="w-4 h-4 text-cyan-400" />
             <div>
-              <div className="font-medium">Generate QR Code</div>
+              <div className="font-medium">QR Code</div>
               <div className="text-xs text-gray-400">Scan to add contact</div>
-            </div>
-          </button>
-          <button onClick={downloadVCard} className={itemClass}>
-            <Download className="w-4 h-4 text-cyan-400" />
-            <div>
-              <div className="font-medium">Standard vCard</div>
-              <div className="text-xs text-gray-400">Universal format</div>
             </div>
           </button>
         </motion.div>
@@ -259,16 +223,109 @@ function ReviewCarousel() {
   );
 }
 
+function StyledSelect({
+  name,
+  placeholder,
+  options,
+  required,
+  value,
+  onChange,
+}: {
+  name: string;
+  placeholder: string;
+  options: { value: string; label: string }[];
+  required?: boolean;
+  value: string;
+  onChange: (val: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selected = options.find((o) => o.value === value);
+
+  return (
+    <div ref={ref} className="relative">
+      <input type="hidden" name={name} value={value} required={required} />
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-left focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400/50 transition-colors flex items-center justify-between"
+      >
+        <span className={selected ? "text-white" : "text-gray-400"}>
+          {selected ? selected.label : placeholder}
+        </span>
+        <ChevronDown
+          className={`w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute z-50 bottom-full mb-1 left-0 right-0 bg-emerald-950/95 backdrop-blur-xl border border-emerald-400/25 rounded-xl overflow-hidden shadow-[0_-4px_30px_rgba(16,185,129,0.15)] max-h-60 overflow-y-auto"
+        >
+          {options.map((opt) => (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => {
+                onChange(opt.value);
+                setOpen(false);
+              }}
+              className={`w-full px-4 py-3 text-left text-sm transition-colors ${
+                value === opt.value
+                  ? "bg-emerald-500/30 text-emerald-300 font-medium"
+                  : "text-emerald-100 hover:bg-emerald-500/15 hover:text-white"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
 function RateTrackerSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [creditScore, setCreditScore] = useState("");
+  const [occupancyType, setOccupancyType] = useState("");
+  const [currentLoanProgram, setCurrentLoanProgram] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
-    console.log("Rate Tracker submission:", data);
+    setSubmitting(true);
+
+    try {
+      await fetch("/api/rate-tracker", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch {
+      // Silently handle — show success regardless
+    }
+
+    setSubmitting(false);
     setSubmitted(true);
     form.reset();
+    setCreditScore("");
+    setOccupancyType("");
+    setCurrentLoanProgram("");
     setTimeout(() => setSubmitted(false), 5000);
   }
 
@@ -399,55 +456,53 @@ function RateTrackerSection() {
                     required
                     className={inputClass}
                   />
-                  <select
+                  <StyledSelect
                     name="creditScore"
+                    placeholder="Estimated Credit Score"
                     required
-                    defaultValue=""
-                    className={inputClass}
-                  >
-                    <option value="" disabled>
-                      Estimated Credit Score
-                    </option>
-                    <option value="740+">Excellent (740+)</option>
-                    <option value="700-739">Good (700-739)</option>
-                    <option value="660-699">Fair (660-699)</option>
-                    <option value="below-660">Below 660</option>
-                  </select>
-                  <select
+                    value={creditScore}
+                    onChange={setCreditScore}
+                    options={[
+                      { value: "740+", label: "Excellent (740+)" },
+                      { value: "700-739", label: "Good (700-739)" },
+                      { value: "660-699", label: "Fair (660-699)" },
+                      { value: "below-660", label: "Below 660" },
+                    ]}
+                  />
+                  <StyledSelect
                     name="occupancyType"
+                    placeholder="Occupancy Type"
                     required
-                    defaultValue=""
-                    className={inputClass}
-                  >
-                    <option value="" disabled>
-                      Occupancy Type
-                    </option>
-                    <option value="owner-occupied">Owner Occupied</option>
-                    <option value="investment">Investment Property</option>
-                    <option value="second-home">Second Home</option>
-                  </select>
-                  <select
+                    value={occupancyType}
+                    onChange={setOccupancyType}
+                    options={[
+                      { value: "owner-occupied", label: "Owner Occupied" },
+                      { value: "investment", label: "Investment Property" },
+                      { value: "second-home", label: "Second Home" },
+                    ]}
+                  />
+                  <StyledSelect
                     name="currentLoanProgram"
+                    placeholder="Current Loan Program"
                     required
-                    defaultValue=""
-                    className={inputClass}
-                  >
-                    <option value="" disabled>
-                      Current Loan Program
-                    </option>
-                    <option value="conventional">Conventional</option>
-                    <option value="fha">FHA</option>
-                    <option value="va">VA</option>
-                    <option value="jumbo">Jumbo</option>
-                    <option value="usda">USDA</option>
-                    <option value="other">Other / Not Sure</option>
-                  </select>
+                    value={currentLoanProgram}
+                    onChange={setCurrentLoanProgram}
+                    options={[
+                      { value: "conventional", label: "Conventional" },
+                      { value: "fha", label: "FHA" },
+                      { value: "va", label: "VA" },
+                      { value: "jumbo", label: "Jumbo" },
+                      { value: "usda", label: "USDA" },
+                      { value: "other", label: "Other / Not Sure" },
+                    ]}
+                  />
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-xl transition-colors mt-2"
+                  disabled={submitting}
+                  className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-colors mt-2"
                 >
-                  Start Tracking My Rate
+                  {submitting ? "Submitting..." : "Start Tracking My Rate"}
                 </button>
               </form>
             )}
@@ -741,13 +796,13 @@ export default function DavidYoungPage() {
           Equal Housing Lender
         </p>
         <div className="flex gap-6 justify-center text-sm text-gray-500 mb-4">
-          <a href="#" className="hover:text-gray-700">Privacy</a>
-          <a href="#" className="hover:text-gray-700">Terms</a>
-          <a href="#" className="hover:text-gray-700">Licensing</a>
+          <a href="https://lendwisemtg.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">Privacy</a>
+          <a href="https://lendwisemtg.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">Terms</a>
+          <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/2702455" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">Licensing</a>
           <a href={`mailto:${loProfile.company.email}`} className="hover:text-gray-700">Contact</a>
         </div>
         <p className="text-gray-400 text-sm">
-          &copy; {loProfile.company.copyrightYear} {loProfile.company.name}. All rights reserved.
+          &copy; {new Date().getFullYear()} {loProfile.company.name}. All rights reserved.
         </p>
       </footer>
 

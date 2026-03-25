@@ -154,7 +154,7 @@ export const loProfile = {
 
   // ── Application Link ─────────────────────────────────────
   applicationUrl:
-    "https://lendwisemtg.mymortgage-online.com/borrower-app/registration/?workFlowId=223023&action=login&dest=/loan-app/&siteId=1956469515",
+    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=dyoung&workFlowId=233348",
 
   // ── Page Metadata ────────────────────────────────────────
   meta: {
