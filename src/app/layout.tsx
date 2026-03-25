@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://davidyoung.lendwisemtg.com"),
+  metadataBase: new URL("https://davidyoung.teamlendwise.com"),
   title: loProfile.meta.title,
   description: loProfile.meta.description,
   keywords: loProfile.meta.keywords,
