@@ -16,44 +16,44 @@
 
 export const loProfile = {
   // ── Personal ──────────────────────────────────────────────
-  firstName: "David",
-  lastName: "Young",
-  fullName: "David Young",
-  title: "Private Mortgage Banker / CMO / Partner",
-  tagline: "Your Mortgage. My Mission.",
-  photoPath: "/images/team/david-young.jpg",
+  firstName: "Tony",
+  lastName: "Nasim",
+  fullName: "Tony Nasim",
+  title: "CSO / Partner",
+  tagline: "Where Others Say No, I Find a Way.",
+  photoPath: "/images/team/tony-nasim.jpg",
 
   // ── Bio (hero section) ───────────────────────────────────
-  heroExperience: "25 years",
-  heroAchievement: "hundreds of millions funded",
+  heroExperience: "20+ years",
+  heroAchievement: "2,000+ loans personally funded",
   heroDescription:
-    "but what drives me hasn\u2019t changed. Your home is your most trusted asset, and you deserve someone who treats it that way. No receptionist, no runaround \u2014 I\u2019m here when you need me.",
+    "but the number I\u2019m most proud of? The ones every other lender said no to. Complex income, unique properties, tight timelines \u2014 I find solutions where others see dead ends.",
 
   // ── Bio (about section — plain text, apostrophes use \u2019) ──
   aboutBio:
-    "I\u2019ve spent over 25 years in the mortgage industry, and I still take pride in what real customer service means \u2014 staying ahead of every new program, rate, and advantage that can benefit my clients. I\u2019ve owned several successful mortgage businesses serving different markets, but with LendWise, I\u2019ve built something I\u2019ve always wanted: every program under one roof, powered by the best pricing and technology in the business. Having funded hundreds of millions in loans, I understand the weight of the decisions homeowners face. Your home is your most trusted asset, and that gravity is never lost on me. When you work with me, you\u2019re working directly with an owner \u2014 no receptionist, no middleman. I\u2019m always a phone call, text, or email away.",
+    "Over 20 years. More than 2,000 loans personally funded. But the number I\u2019m most proud of? The ones every other lender said no to. Complex income, unique properties, tight timelines \u2014 I\u2019ve built my reputation on finding solutions where others see dead ends. I don\u2019t hand your file off to a processor and disappear. I\u2019m in the details from day one, catching issues before they become problems and keeping you informed every step of the way. Your home is the biggest financial decision you\u2019ll make, and you deserve someone who treats it that way. When I\u2019m not closing loans, I\u2019m on the basketball court with my three sons or exploring new places with my daughter.",
 
   // ── "Why Work With Me" Cards ───────────────────────────────
   aboutCards: [
     {
       img: "/images/icons/person-check.png",
-      title: "Direct Access",
-      desc: "Work directly with a partner, not a call center. I\u2019m personally invested in getting your loan closed right.",
+      title: "The Fixer",
+      desc: "I specialize in the loans other lenders won\u2019t touch. Complex income, unique situations \u2014 I find the path forward.",
     },
     {
       img: "/images/icons/chip.png",
-      title: "Technology Forward",
-      desc: "I leverage AI to ensure flawless execution \u2014 faster approvals, smarter processing, and nothing falling through the cracks.",
+      title: "Hands-On, Start to Finish",
+      desc: "No handoffs, no runaround. I personally manage your file from application to closing.",
     },
     {
       img: "/images/icons/globe.png",
-      title: "Nationwide Reach",
-      desc: "Licensed and lending across multiple states. Bringing modern mortgage solutions wherever you are.",
+      title: "2,000+ Loans Funded",
+      desc: "Two decades of experience means I\u2019ve seen it all \u2014 and solved it all.",
     },
     {
       img: "/images/icons/chip-dark.png",
-      title: "Personal Touch",
-      desc: "I know my clients by name, not number. Your biggest investment deserves care and precision.",
+      title: "Family First",
+      desc: "I understand what home means. It\u2019s why I treat every client\u2019s decision like my own.",
     },
   ],
 
@@ -73,66 +73,56 @@ export const loProfile = {
   // ── Reviews / Testimonials ─────────────────────────────────
   reviews: [
     {
-      name: "Sarah M.",
-      text: "David made our first home purchase feel effortless. He was available at every step and got us an incredible rate.",
+      name: "Michael R.",
+      text: "I was turned down by two banks because of my self-employment income. Tony found a program that worked and closed in three weeks. He literally saved my home purchase.",
       rating: 5,
     },
     {
-      name: "James & Lisa R.",
-      text: "We refinanced with David and saved over $400/month. His tech-forward approach made the paperwork painless.",
+      name: "Sandra & James L.",
+      text: "Tony handled our jumbo refinance like it was nothing. He caught a title issue early that would have killed the deal with anyone else. Incredible attention to detail.",
       rating: 5,
     },
     {
-      name: "Michael T.",
-      text: "As a self-employed borrower, I thought getting a mortgage would be impossible. David found the perfect program for me.",
+      name: "David K.",
+      text: "As an investor, I need someone who moves fast and knows the DSCR space. Tony is that guy. Five properties financed, zero issues.",
       rating: 5,
     },
     {
-      name: "Jennifer K.",
-      text: "David walked us through every option and never made us feel rushed. We closed two weeks ahead of schedule.",
+      name: "Rachel M.",
+      text: "Tony took the time to explain every option and never pressured us. First-time buyers with a lot of anxiety, and he made it feel easy.",
       rating: 5,
     },
     {
-      name: "Robert & Maria S.",
-      text: "We were first-time buyers with a million questions. David answered every single one, even on weekends. Couldn\u2019t ask for better service.",
+      name: "Alex & Priya T.",
+      text: "Our situation was complicated \u2014 mixed income, foreign assets, tight timeline. Tony didn\u2019t flinch. We closed on time with a great rate.",
       rating: 5,
     },
     {
-      name: "Angela D.",
-      text: "After being turned down by two other lenders, David found a program that worked for my situation. I\u2019m now a homeowner because of him.",
+      name: "Brian H.",
+      text: "I\u2019ve worked with Tony on three loans over the years. Each time he finds a way to beat what I thought was the best deal. That\u2019s why I keep coming back.",
       rating: 5,
     },
     {
-      name: "Chris P.",
-      text: "The AI rate tracker David uses is incredible. He called me the day rates dropped and we locked in immediately. Saved us thousands.",
+      name: "Carmen S.",
+      text: "Tony was available nights and weekends when we needed him. He treated our loan like it was his own family\u2019s. You won\u2019t find that anywhere else.",
       rating: 5,
     },
     {
-      name: "Natalie & Brian W.",
-      text: "David helped us purchase our investment property with a DSCR loan. He explained every detail and made the process seamless.",
-      rating: 5,
-    },
-    {
-      name: "Daniel F.",
-      text: "I\u2019ve done three loans with David over the years. Every time, he finds a way to save me money. That\u2019s loyalty you can\u2019t fake.",
-      rating: 5,
-    },
-    {
-      name: "Karen & Tom L.",
-      text: "David\u2019s team closed our jumbo loan in 21 days. Other lenders quoted us 45. The technology he uses is on another level.",
+      name: "Kevin & Lisa W.",
+      text: "We needed a fix-and-flip loan on a tight schedule. Tony got it done in 12 days. Other lenders told us 30 minimum. He\u2019s the real deal.",
       rating: 5,
     },
   ],
 
   // ── Contact ──────────────────────────────────────────────
-  phone: "(310) 954-7772",
-  phoneRaw: "+13109547772",
-  email: "david@lendwisemtg.com",
-  smsRaw: "+13109547772",
+  phone: "(818) 331-9142",
+  phoneRaw: "+18183319142",
+  email: "tony@lendwisemtg.com",
+  smsRaw: "+18183319142",
 
   // ── Credentials ──────────────────────────────────────────
-  nmls: "62043",
-  dre: "01371572",
+  nmls: "819586",
+  dre: "01892824",
 
   // ── Company ──────────────────────────────────────────────
   company: {
@@ -154,17 +144,17 @@ export const loProfile = {
 
   // ── Application Link ─────────────────────────────────────
   applicationUrl:
-    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=dyoung&workFlowId=233348",
+    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=tnasim&workFlowId=233348",
 
   // ── Page Metadata ────────────────────────────────────────
   meta: {
-    title: "David Young | Private Mortgage Banker at LendWise Mortgage",
+    title: "Tony Nasim | CSO & Partner at LendWise Mortgage",
     description:
-      "David Young - Private Mortgage Banker, CMO & Partner at LendWise Mortgage Corporation. Your Mortgage. My Mission. Apply for a home loan with personalized service and cutting-edge technology.",
+      "Tony Nasim - CSO & Partner at LendWise Mortgage Corporation. 20+ years, 2,000+ loans funded. Where Others Say No, I Find a Way. Apply for a home loan today.",
     keywords:
-      "mortgage, home loan, David Young, LendWise, private mortgage banker, apply, refinance, purchase",
-    ogTitle: "David Young | LendWise Mortgage",
+      "mortgage, home loan, Tony Nasim, LendWise, CSO, apply, refinance, purchase, complex loans",
+    ogTitle: "Tony Nasim | LendWise Mortgage",
     ogDescription:
-      "Your Mortgage. My Mission. Work directly with a partner for a transparent, fast, and personal lending experience.",
+      "Where Others Say No, I Find a Way. 20+ years and 2,000+ loans funded. Work directly with a partner for expert mortgage solutions.",
   },
 };

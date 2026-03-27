@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://davidyoung.teamlendwise.com/sitemap.xml
+Sitemap: https://tonynasim.teamlendwise.com/sitemap.xml

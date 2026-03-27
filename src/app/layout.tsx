@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://davidyoung.teamlendwise.com"),
+  metadataBase: new URL("https://tonynasim.teamlendwise.com"),
   title: loProfile.meta.title,
   description: loProfile.meta.description,
   keywords: loProfile.meta.keywords,
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     title: loProfile.meta.ogTitle,
     description: loProfile.meta.ogDescription,
     type: "website",
-    images: [{ url: "/images/og-preview.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/images/og-preview-tony.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: loProfile.meta.ogTitle,
     description: loProfile.meta.ogDescription,
-    images: ["/images/og-preview.jpg"],
+    images: ["/images/og-preview-tony.jpg"],
   },
 };
 
