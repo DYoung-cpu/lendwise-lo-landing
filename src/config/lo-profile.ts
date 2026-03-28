@@ -47,8 +47,8 @@ export const loProfile = {
     },
     {
       img: "/images/icons/globe.png",
-      title: "California & Florida",
-      desc: "Licensed and lending in two of the nation\u2019s most competitive markets. Local knowledge with broad reach.",
+      title: "Broad Reach",
+      desc: "Serving borrowers across multiple markets with local knowledge and a nationwide lending platform.",
     },
     {
       img: "/images/icons/chip-dark.png",

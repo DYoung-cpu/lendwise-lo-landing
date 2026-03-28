@@ -45,7 +45,7 @@ function ContactDropdown() {
         lightColor="#06b6d4"
         backgroundColor="#0f172a"
         duration={7}
-        className="h-10 px-5 text-sm"
+        className="h-9 px-4 text-xs whitespace-nowrap"
         onClick={() => setOpen(!open)}
       >
         Contact Me
@@ -124,10 +124,10 @@ function VCardDropdown() {
         lightColor="#8b5cf6"
         backgroundColor="#0f172a"
         duration={7}
-        className="h-10 px-5 text-sm"
+        className="h-9 px-4 text-xs whitespace-nowrap"
         onClick={() => setOpen(!open)}
       >
-        Download vCard
+        vCard
       </StarButton>
       {open && (
         <motion.div
@@ -538,7 +538,7 @@ export default function LOLandingPage() {
               />
             </motion.a>
             <motion.div
-              className="hidden md:flex gap-3 pr-4 self-end pb-6"
+              className="hidden md:flex gap-2 pr-4 self-end pb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -550,7 +550,7 @@ export default function LOLandingPage() {
                 lightColor="#d4af37"
                 backgroundColor="#0f172a"
                 duration={6}
-                className="h-10 px-5 text-sm"
+                className="h-9 px-4 text-xs whitespace-nowrap"
               >
                 Apply Now
               </StarButton>
@@ -561,16 +561,16 @@ export default function LOLandingPage() {
                 lightColor="#d4af37"
                 backgroundColor="#0f172a"
                 duration={7}
-                className="h-10 px-5 text-sm"
+                className="h-9 px-4 text-xs whitespace-nowrap"
               >
-                Buydown Calc
+                Buydown Calculator
               </StarButton>
               <StarButton
                 href="#rate-tracker"
                 lightColor="#10b981"
                 backgroundColor="#0f172a"
                 duration={8}
-                className="h-10 px-5 text-sm"
+                className="h-9 px-4 text-xs whitespace-nowrap"
               >
                 Rate Tracker
               </StarButton>
@@ -674,7 +674,7 @@ export default function LOLandingPage() {
       </AnimatedBackground>
 
       {/* Section 4: Buydown Calculator */}
-      <AnimatedBackground variant="dark" intensity="medium" id="buydown-calculator" className="py-12 md:py-20 px-6">
+      <AnimatedBackground variant="gold" intensity="medium" id="buydown-calculator" className="py-12 md:py-20 px-6">
         <BuydownCalculator />
       </AnimatedBackground>
 
