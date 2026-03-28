@@ -16,44 +16,44 @@
 
 export const loProfile = {
   // ── Personal ──────────────────────────────────────────────
-  firstName: "David",
-  lastName: "Young",
-  fullName: "David Young",
-  title: "Private Mortgage Banker / CMO / Partner",
-  tagline: "Your Mortgage. My Mission.",
-  photoPath: "/images/team/david-young.jpg",
+  firstName: "Frankie",
+  lastName: "Fahimi",
+  fullName: "Frankie Fahimi",
+  title: "Loan Officer",
+  tagline: "Real Estate Expertise. Mortgage Excellence.",
+  photoPath: "/images/team/frankie-fahimi.jpg",
 
   // ── Bio (hero section) ───────────────────────────────────
-  heroExperience: "25 years",
-  heroAchievement: "hundreds of millions funded",
+  heroExperience: "a decade",
+  heroAchievement: "a proven track record in real estate and lending",
   heroDescription:
-    "but what drives me hasn\u2019t changed. Your home is your most trusted asset, and you deserve someone who treats it that way. No receptionist, no runaround \u2014 I\u2019m here when you need me.",
+    "I bring something most loan officers can\u2019t \u2014 years on the real estate side. I\u2019ve sat where your agent sits, solved the problems before they become yours, and now I bring that same intensity to getting your mortgage done right.",
 
   // ── Bio (about section — plain text, apostrophes use \u2019) ──
   aboutBio:
-    "I\u2019ve spent over 25 years in the mortgage industry, and I still take pride in what real customer service means \u2014 staying ahead of every new program, rate, and advantage that can benefit my clients. I\u2019ve owned several successful mortgage businesses serving different markets, but with LendWise, I\u2019ve built something I\u2019ve always wanted: every program under one roof, powered by the best pricing and technology in the business. Having funded hundreds of millions in loans, I understand the weight of the decisions homeowners face. Your home is your most trusted asset, and that gravity is never lost on me. When you work with me, you\u2019re working directly with an owner \u2014 no receptionist, no middleman. I\u2019m always a phone call, text, or email away.",
+    "After years as a licensed real estate professional, I made the transition to mortgage lending \u2014 and I brought everything I learned with me. I understand the pressure agents face, the timelines borrowers worry about, and the details that make or break a transaction. That dual perspective means I don\u2019t just process loans \u2014 I anticipate issues before they surface and resolve them before they become problems. Whether you\u2019re a first-time buyer, a seasoned investor, or a real estate partner looking for a lender who truly gets it, I\u2019m here. Available, dedicated, and always in your corner.",
 
   // ── "Why Work With Me" Cards ───────────────────────────────
   aboutCards: [
     {
       img: "/images/icons/person-check.png",
-      title: "Direct Access",
-      desc: "Work directly with a partner, not a call center. I\u2019m personally invested in getting your loan closed right.",
+      title: "Both Sides of the Deal",
+      desc: "Years in real estate means I understand your agent\u2019s challenges and your concerns as a borrower \u2014 and I bridge the gap.",
     },
     {
       img: "/images/icons/chip.png",
       title: "Technology Forward",
-      desc: "I leverage AI to ensure flawless execution \u2014 faster approvals, smarter processing, and nothing falling through the cracks.",
+      desc: "I leverage AI and automation to ensure flawless execution \u2014 faster approvals, smarter processing, nothing falling through the cracks.",
     },
     {
       img: "/images/icons/globe.png",
-      title: "Nationwide Reach",
-      desc: "Licensed and lending across multiple states. Bringing modern mortgage solutions wherever you are.",
+      title: "California & Florida",
+      desc: "Licensed and lending in two of the nation\u2019s most competitive markets. Local knowledge with broad reach.",
     },
     {
       img: "/images/icons/chip-dark.png",
-      title: "Personal Touch",
-      desc: "I know my clients by name, not number. Your biggest investment deserves care and precision.",
+      title: "Always Available",
+      desc: "I don\u2019t disappear after you apply. Call, text, or email \u2014 I\u2019m here when you need me, every step of the way.",
     },
   ],
 
@@ -71,68 +71,18 @@ export const loProfile = {
   ],
 
   // ── Reviews / Testimonials ─────────────────────────────────
-  reviews: [
-    {
-      name: "Sarah M.",
-      text: "David made our first home purchase feel effortless. He was available at every step and got us an incredible rate.",
-      rating: 5,
-    },
-    {
-      name: "James & Lisa R.",
-      text: "We refinanced with David and saved over $400/month. His tech-forward approach made the paperwork painless.",
-      rating: 5,
-    },
-    {
-      name: "Michael T.",
-      text: "As a self-employed borrower, I thought getting a mortgage would be impossible. David found the perfect program for me.",
-      rating: 5,
-    },
-    {
-      name: "Jennifer K.",
-      text: "David walked us through every option and never made us feel rushed. We closed two weeks ahead of schedule.",
-      rating: 5,
-    },
-    {
-      name: "Robert & Maria S.",
-      text: "We were first-time buyers with a million questions. David answered every single one, even on weekends. Couldn\u2019t ask for better service.",
-      rating: 5,
-    },
-    {
-      name: "Angela D.",
-      text: "After being turned down by two other lenders, David found a program that worked for my situation. I\u2019m now a homeowner because of him.",
-      rating: 5,
-    },
-    {
-      name: "Chris P.",
-      text: "The AI rate tracker David uses is incredible. He called me the day rates dropped and we locked in immediately. Saved us thousands.",
-      rating: 5,
-    },
-    {
-      name: "Natalie & Brian W.",
-      text: "David helped us purchase our investment property with a DSCR loan. He explained every detail and made the process seamless.",
-      rating: 5,
-    },
-    {
-      name: "Daniel F.",
-      text: "I\u2019ve done three loans with David over the years. Every time, he finds a way to save me money. That\u2019s loyalty you can\u2019t fake.",
-      rating: 5,
-    },
-    {
-      name: "Karen & Tom L.",
-      text: "David\u2019s team closed our jumbo loan in 21 days. Other lenders quoted us 45. The technology he uses is on another level.",
-      rating: 5,
-    },
-  ],
+  // Empty for now — section will be hidden until Frankie has testimonials
+  reviews: [] as { name: string; text: string; rating: number }[],
 
   // ── Contact ──────────────────────────────────────────────
-  phone: "(310) 954-7772",
-  phoneRaw: "+13109547772",
-  email: "david@lendwisemtg.com",
-  smsRaw: "+13109547772",
+  phone: "(818) 929-2929",
+  phoneRaw: "+18189292929",
+  email: "frankie@lendwisemtg.com",
+  smsRaw: "+18189292929",
 
   // ── Credentials ──────────────────────────────────────────
-  nmls: "62043",
-  dre: "01371572",
+  nmls: "2808072",
+  dre: "",
 
   // ── Company ──────────────────────────────────────────────
   company: {
@@ -154,17 +104,20 @@ export const loProfile = {
 
   // ── Application Link ─────────────────────────────────────
   applicationUrl:
-    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=dyoung&workFlowId=233348",
+    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=ffahimi&workFlowId=233348",
+
+  // ── Calendar Link ────────────────────────────────────────
+  calendarUrl: "https://calendar.app.google/8nbT4V6tmso9oq7eA",
 
   // ── Page Metadata ────────────────────────────────────────
   meta: {
-    title: "David Young | Private Mortgage Banker at LendWise Mortgage",
+    title: "Frankie Fahimi | Loan Officer at LendWise Mortgage",
     description:
-      "David Young - Private Mortgage Banker, CMO & Partner at LendWise Mortgage Corporation. Your Mortgage. My Mission. Apply for a home loan with personalized service and cutting-edge technology.",
+      "Frankie Fahimi - Loan Officer at LendWise Mortgage Corporation. Real Estate Expertise. Mortgage Excellence. From years in real estate to mortgage lending — I bring both sides of the deal to your corner.",
     keywords:
-      "mortgage, home loan, David Young, LendWise, private mortgage banker, apply, refinance, purchase",
-    ogTitle: "David Young | LendWise Mortgage",
+      "mortgage, home loan, Frankie Fahimi, LendWise, loan officer, apply, refinance, purchase, California, Florida",
+    ogTitle: "Frankie Fahimi | LendWise Mortgage",
     ogDescription:
-      "Your Mortgage. My Mission. Work directly with a partner for a transparent, fast, and personal lending experience.",
+      "Real Estate Expertise. Mortgage Excellence. Work with a loan officer who understands both sides of the transaction.",
   },
 };

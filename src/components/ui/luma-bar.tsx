@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Grid3X3, Sparkles, TrendingUp, Star, FileText } from "lucide-react";
+import { Home, User, Grid3X3, Sparkles, TrendingUp, Calculator, FileText } from "lucide-react";
 
 interface NavItem {
   id: number;
@@ -15,9 +15,9 @@ const items: NavItem[] = [
   { id: 0, icon: <Home size={24} />, label: "Home", href: "#hero" },
   { id: 1, icon: <User size={24} />, label: "About", href: "#about" },
   { id: 2, icon: <Grid3X3 size={24} />, label: "Loans", href: "#programs" },
-  { id: 3, icon: <Sparkles size={24} />, label: "AI", href: "#odin" },
-  { id: 4, icon: <TrendingUp size={24} />, label: "Rates", href: "#rate-tracker" },
-  { id: 5, icon: <Star size={24} />, label: "Reviews", href: "#reviews" },
+  { id: 3, icon: <Calculator size={24} />, label: "Buydown", href: "#buydown-calculator" },
+  { id: 4, icon: <Sparkles size={24} />, label: "AI", href: "#odin" },
+  { id: 5, icon: <TrendingUp size={24} />, label: "Rates", href: "#rate-tracker" },
   { id: 6, icon: <FileText size={24} />, label: "Apply", href: "#apply" },
 ];
 

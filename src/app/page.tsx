@@ -7,6 +7,7 @@ import { ParallaxHero } from "@/components/ui/parallax-hero";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { StarButton } from "@/components/ui/star-button";
 import { loProfile } from "@/config/lo-profile";
+import BuydownCalculator from "@/components/buydown-calculator";
 import Image from "next/image";
 import {
   Wallet,
@@ -513,7 +514,7 @@ function RateTrackerSection() {
   );
 }
 
-export default function DavidYoungPage() {
+export default function LOLandingPage() {
   return (
     <main className="min-h-screen">
       {/* Header */}
@@ -555,6 +556,15 @@ export default function DavidYoungPage() {
               </StarButton>
               <ContactDropdown />
               <VCardDropdown />
+              <StarButton
+                href="#buydown-calculator"
+                lightColor="#d4af37"
+                backgroundColor="#0f172a"
+                duration={7}
+                className="h-10 px-5 text-sm"
+              >
+                Buydown Calc
+              </StarButton>
               <StarButton
                 href="#rate-tracker"
                 lightColor="#10b981"
@@ -663,7 +673,12 @@ export default function DavidYoungPage() {
         </div>
       </AnimatedBackground>
 
-      {/* Section 4: Odin AI */}
+      {/* Section 4: Buydown Calculator */}
+      <AnimatedBackground variant="dark" intensity="medium" id="buydown-calculator" className="py-12 md:py-20 px-6">
+        <BuydownCalculator />
+      </AnimatedBackground>
+
+      {/* Section 5: Odin AI */}
       <AnimatedBackground variant="dark" intensity="medium" id="odin" className="py-12 md:py-20 px-6 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gold text-sm font-medium mb-2">Introducing</p>
@@ -719,18 +734,20 @@ export default function DavidYoungPage() {
       {/* Section 5: Rate Tracker */}
       <RateTrackerSection />
 
-      {/* Section 6: Reviews / Social Proof */}
-      <AnimatedBackground variant="light" intensity="subtle" id="reviews" className="py-12 md:py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">
-            What Clients Say
-          </h2>
-          <p className="text-gray-600 text-center mb-12">
-            Real experiences from real homeowners.
-          </p>
-          <ReviewCarousel />
-        </div>
-      </AnimatedBackground>
+      {/* Section 7: Reviews / Social Proof (hidden when no reviews) */}
+      {loProfile.reviews.length > 0 && (
+        <AnimatedBackground variant="light" intensity="subtle" id="reviews" className="py-12 md:py-20 px-6 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">
+              What Clients Say
+            </h2>
+            <p className="text-gray-600 text-center mb-12">
+              Real experiences from real homeowners.
+            </p>
+            <ReviewCarousel />
+          </div>
+        </AnimatedBackground>
+      )}
 
       {/* Section 7: Contact & Apply CTA */}
       <AnimatedBackground variant="dark" intensity="strong" id="apply" className="py-12 md:py-20 px-6 text-white text-center">
@@ -767,7 +784,7 @@ export default function DavidYoungPage() {
 
         <div className="flex gap-8 justify-center text-sm text-gray-500">
           <span>NMLS #{loProfile.nmls}</span>
-          <span>DRE #{loProfile.dre}</span>
+          {loProfile.dre && <span>DRE #{loProfile.dre}</span>}
         </div>
       </AnimatedBackground>
 
