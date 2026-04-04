@@ -135,6 +135,25 @@ export default function RecruitPage() {
                 className="h-[160px] md:h-[264px] w-auto -mt-6 md:-mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
             </motion.a>
+            {/* Left-side nav links */}
+            <motion.div
+              className="hidden md:flex gap-4 pl-4 self-end pb-6 absolute left-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {[
+                { label: "Compensation", href: "#comp" },
+                { label: "Products", href: "#programs" },
+                { label: "Marketing", href: "#marketing" },
+                { label: "Meet the Team", href: "#team" },
+              ].map((link) => (
+                <a key={link.href} href={link.href} className="text-sm text-gray-400 hover:text-white transition-colors whitespace-nowrap">
+                  {link.label}
+                </a>
+              ))}
+            </motion.div>
+            {/* Right-side CTA buttons */}
             <motion.div
               className="hidden md:flex gap-3 pr-4 self-end pb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -292,30 +311,6 @@ export default function RecruitPage() {
           </div>
         </section>
       </AnimatedBackground>
-
-      {/* ── Staff Support ──────────────────────────────────── */}
-      <section className="py-24 bg-[#0a0f1a] border-y border-white/5" id="support">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm">
-              <Headphones className="w-4 h-4" /> Operations
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">{support.headline}</h2>
-            <p className="text-gray-400 max-w-lg mx-auto">{support.subheadline}</p>
-          </motion.div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {support.staff.map((person, i) => (
-              <motion.div key={person.name} className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02]" initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}>
-                <Initials name={person.name} />
-                <div>
-                  <div className="font-semibold text-sm">{person.name}</div>
-                  <div className="text-xs text-gray-400">{person.title}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Marketing & Tech ───────────────────────────────── */}
       <AnimatedBackground variant="green" intensity="subtle">
