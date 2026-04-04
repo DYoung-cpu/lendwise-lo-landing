@@ -135,12 +135,12 @@ export default function RecruitPage() {
                 className="h-[160px] md:h-[264px] w-auto -mt-6 md:-mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
             </motion.a>
-            {/* Right-side buttons — nav + CTA all together */}
+            {/* Left-side buttons (3) */}
             <motion.div
-              className="hidden md:flex flex-wrap gap-2 pr-4 self-end pb-6 justify-end"
+              className="hidden md:flex gap-2 pl-4 self-end pb-6 absolute left-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <StarButton href="#comp" lightColor="#d4af37" backgroundColor="#0f172a" duration={8} className="h-10 px-4 text-sm">
                 Compensation
@@ -151,13 +151,21 @@ export default function RecruitPage() {
               <StarButton href="#marketing" lightColor="#d4af37" backgroundColor="#0f172a" duration={10} className="h-10 px-4 text-sm">
                 Marketing
               </StarButton>
+            </motion.div>
+            {/* Right-side buttons (3) */}
+            <motion.div
+              className="hidden md:flex gap-2 pr-4 self-end pb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <StarButton href="#team" lightColor="#d4af37" backgroundColor="#0f172a" duration={11} className="h-10 px-4 text-sm">
                 Meet the Team
               </StarButton>
-              <StarButton href="#contact" lightColor="#10b981" backgroundColor="#0f172a" duration={6} className="h-10 px-5 text-sm">
+              <StarButton href="#contact" lightColor="#10b981" backgroundColor="#0f172a" duration={6} className="h-10 px-4 text-sm">
                 Join the Team
               </StarButton>
-              <StarButton href={`tel:${contact.phoneRaw}`} lightColor="#06b6d4" backgroundColor="#0f172a" duration={7} className="h-10 px-5 text-sm">
+              <StarButton href={`tel:${contact.phoneRaw}`} lightColor="#06b6d4" backgroundColor="#0f172a" duration={7} className="h-10 px-4 text-sm">
                 {contact.phone}
               </StarButton>
             </motion.div>
