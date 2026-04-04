@@ -135,31 +135,25 @@ export default function RecruitPage() {
                 className="h-[160px] md:h-[264px] w-auto -mt-6 md:-mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
             </motion.a>
-            {/* Left-side nav links */}
+            {/* Right-side buttons — nav + CTA all together */}
             <motion.div
-              className="hidden md:flex gap-4 pl-4 self-end pb-6 absolute left-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              {[
-                { label: "Compensation", href: "#comp" },
-                { label: "Products", href: "#programs" },
-                { label: "Marketing", href: "#marketing" },
-                { label: "Meet the Team", href: "#team" },
-              ].map((link) => (
-                <a key={link.href} href={link.href} className="text-sm text-gray-400 hover:text-white transition-colors whitespace-nowrap">
-                  {link.label}
-                </a>
-              ))}
-            </motion.div>
-            {/* Right-side CTA buttons */}
-            <motion.div
-              className="hidden md:flex gap-3 pr-4 self-end pb-6"
+              className="hidden md:flex flex-wrap gap-2 pr-4 self-end pb-6 justify-end"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
+              <StarButton href="#comp" lightColor="#d4af37" backgroundColor="#0f172a" duration={8} className="h-10 px-4 text-sm">
+                Compensation
+              </StarButton>
+              <StarButton href="#programs" lightColor="#d4af37" backgroundColor="#0f172a" duration={9} className="h-10 px-4 text-sm">
+                Products
+              </StarButton>
+              <StarButton href="#marketing" lightColor="#d4af37" backgroundColor="#0f172a" duration={10} className="h-10 px-4 text-sm">
+                Marketing
+              </StarButton>
+              <StarButton href="#team" lightColor="#d4af37" backgroundColor="#0f172a" duration={11} className="h-10 px-4 text-sm">
+                Meet the Team
+              </StarButton>
               <StarButton href="#contact" lightColor="#10b981" backgroundColor="#0f172a" duration={6} className="h-10 px-5 text-sm">
                 Join the Team
               </StarButton>
