@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { loProfile } from "@/config/lo-profile";
+import { recruitConfig } from "@/config/recruit-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,20 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://davidyoung.teamlendwise.com"),
-  title: loProfile.meta.title,
-  description: loProfile.meta.description,
-  keywords: loProfile.meta.keywords,
+  metadataBase: new URL("https://teamlendwise.com"),
+  title: recruitConfig.meta.title,
+  description: recruitConfig.meta.description,
+  keywords: recruitConfig.meta.keywords,
   openGraph: {
-    title: loProfile.meta.ogTitle,
-    description: loProfile.meta.ogDescription,
+    title: recruitConfig.meta.ogTitle,
+    description: recruitConfig.meta.ogDescription,
     type: "website",
     images: [{ url: "/images/og-preview.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: loProfile.meta.ogTitle,
-    description: loProfile.meta.ogDescription,
+    title: recruitConfig.meta.ogTitle,
+    description: recruitConfig.meta.ogDescription,
     images: ["/images/og-preview.jpg"],
   },
 };
