@@ -8,16 +8,25 @@ const PIPELINE_ID = "t93y7OtzixiOjKG8SuhW";
 const NEW_LEAD_STAGE = "497ea5b6-39d2-4c60-8d00-b34f049c3fde";
 
 async function ghlRequest(method: string, path: string, body?: Record<string, unknown>) {
+  const key = PIT_KEY;
+  if (!key) {
+    console.error("GHL_RECRUIT_PIT_KEY is not set");
+    return { error: "Missing API key" };
+  }
   const res = await fetch(`${GHL_BASE}${path}`, {
     method,
     headers: {
-      Authorization: `Bearer ${PIT_KEY}`,
+      Authorization: `Bearer ${key}`,
       Version: "2021-07-28",
       "Content-Type": "application/json",
     },
     body: body ? JSON.stringify(body) : undefined,
   });
-  return res.json();
+  const data = await res.json();
+  if (!res.ok) {
+    console.error(`GHL ${method} ${path} failed:`, res.status, JSON.stringify(data));
+  }
+  return data;
 }
 
 export async function POST(req: NextRequest) {
@@ -42,33 +51,33 @@ export async function POST(req: NextRequest) {
 
     const contactId = upsertRes?.contact?.id;
 
+    if (!contactId) {
+      console.error("Upsert failed — no contactId returned:", JSON.stringify(upsertRes));
+      return NextResponse.json({ error: "Failed to create contact", detail: upsertRes }, { status: 502 });
+    }
+
     // 2. Add note with their message
-    if (contactId && message) {
+    if (message) {
       await ghlRequest("POST", `/contacts/${contactId}/notes`, {
         body: `[Website Inquiry] ${message}`,
       });
     }
 
     // 3. Create opportunity in recruitment pipeline
-    if (contactId) {
-      await ghlRequest("POST", "/opportunities/", {
-        locationId: LOCATION_ID,
-        pipelineId: PIPELINE_ID,
-        pipelineStageId: NEW_LEAD_STAGE,
-        contactId,
-        name: `${firstName} ${lastName} - Website Inquiry`,
-        status: "open",
-        source: "Website - teamlendwise.com",
-      });
-    }
+    await ghlRequest("POST", "/opportunities/", {
+      locationId: LOCATION_ID,
+      pipelineId: PIPELINE_ID,
+      pipelineStageId: NEW_LEAD_STAGE,
+      contactId,
+      name: `${firstName} ${lastName} - Website Inquiry`,
+      status: "open",
+      source: "Website - teamlendwise.com",
+    });
 
-    // 4. Send notification email via GHL conversation
-    // (Using a simple fetch to avoid needing SMTP — GHL will email David)
-    if (contactId) {
-      await ghlRequest("POST", `/contacts/${contactId}/notes`, {
-        body: `[NOTIFY] New recruitment inquiry from website.\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone || "N/A"}\nCompany: ${company || "N/A"}\nMessage: ${message || "N/A"}`,
-      });
-    }
+    // 4. Add notification note for workflow to pick up
+    await ghlRequest("POST", `/contacts/${contactId}/notes`, {
+      body: `[NOTIFY] New recruitment inquiry from website.\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone || "N/A"}\nCompany: ${company || "N/A"}\nMessage: ${message || "N/A"}`,
+    });
 
     return NextResponse.json({ success: true, contactId });
   } catch (err) {
