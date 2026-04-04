@@ -119,7 +119,25 @@ export default function RecruitPage() {
       {/* ── Header ─────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-[100]">
         <div className="relative bg-slate-950/80 backdrop-blur-xl">
-          <div className="relative flex items-center justify-end px-6 h-24 md:h-44">
+          <div className="relative flex items-center justify-center px-6 h-24 md:h-44">
+            {/* Left-side buttons (3) */}
+            <motion.div
+              className="hidden md:flex gap-2 self-end pb-6 mr-auto ml-[5%]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <StarButton href="#comp" lightColor="#d4af37" backgroundColor="#0f172a" duration={8} className="h-10 px-4 text-sm">
+                Compensation
+              </StarButton>
+              <StarButton href="#programs" lightColor="#d4af37" backgroundColor="#0f172a" duration={9} className="h-10 px-4 text-sm">
+                Products
+              </StarButton>
+              <StarButton href="#marketing" lightColor="#d4af37" backgroundColor="#0f172a" duration={10} className="h-10 px-4 text-sm">
+                Marketing
+              </StarButton>
+            </motion.div>
+            {/* Center logo */}
             <motion.a
               href="#hero"
               className="absolute left-1/2 block overflow-hidden h-24 md:h-44"
@@ -135,26 +153,9 @@ export default function RecruitPage() {
                 className="h-[160px] md:h-[264px] w-auto -mt-6 md:-mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
               />
             </motion.a>
-            {/* Left-side buttons (3) */}
-            <motion.div
-              className="hidden md:flex gap-2 pl-4 self-end pb-6 absolute left-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <StarButton href="#comp" lightColor="#d4af37" backgroundColor="#0f172a" duration={8} className="h-10 px-4 text-sm">
-                Compensation
-              </StarButton>
-              <StarButton href="#programs" lightColor="#d4af37" backgroundColor="#0f172a" duration={9} className="h-10 px-4 text-sm">
-                Products
-              </StarButton>
-              <StarButton href="#marketing" lightColor="#d4af37" backgroundColor="#0f172a" duration={10} className="h-10 px-4 text-sm">
-                Marketing
-              </StarButton>
-            </motion.div>
             {/* Right-side buttons (3) */}
             <motion.div
-              className="hidden md:flex gap-2 pr-4 self-end pb-6"
+              className="hidden md:flex gap-2 self-end pb-6 ml-auto mr-[5%]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
