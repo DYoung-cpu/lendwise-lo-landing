@@ -46,47 +46,84 @@ export default function RecruitPage() {
     recruitConfig;
 
   return (
-    <main className="min-h-screen bg-[#030712] text-white overflow-x-hidden">
-      {/* ── Nav Bar ─────────────────────────────────────────── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/images/owl-logo.png"
-              alt="LendWise"
-              width={32}
-              height={32}
-              className="rounded-full"
-            />
-            <span className="text-lg font-semibold tracking-tight">
-              LendWise Mortgage
-            </span>
+    <main className="min-h-screen text-white overflow-x-hidden">
+      {/* ── Header (matches LO landing pages) ──────────────── */}
+      <header className="fixed top-0 left-0 right-0 z-[100]">
+        <div className="relative bg-slate-950/80 backdrop-blur-xl">
+          <div className="relative flex items-center justify-end px-6 h-24 md:h-44">
+            {/* Logo — absolutely centered */}
+            <motion.a
+              href="#hero"
+              className="absolute left-1/2 block overflow-hidden h-24 md:h-44"
+              initial={{ opacity: 0, y: 20, x: "-50%" }}
+              animate={{ opacity: 1, y: 0, x: "-50%" }}
+              transition={{ duration: 0.6 }}
+            >
+              <Image
+                src="/images/lendwise-hero-logo.png"
+                alt="LendWise Mortgage"
+                width={250}
+                height={110}
+                className="h-[160px] md:h-[264px] w-auto -mt-6 md:-mt-9 drop-shadow-[0_0_30px_rgba(201,162,39,0.3)]"
+              />
+            </motion.a>
+            {/* Right-side buttons */}
+            <motion.div
+              className="hidden md:flex gap-3 pr-4 self-end pb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <StarButton
+                href={hero.ctaUrl}
+                target="_blank"
+                lightColor="#10b981"
+                backgroundColor="#0f172a"
+                duration={6}
+                className="h-10 px-5 text-sm"
+              >
+                Schedule a Call
+              </StarButton>
+              <StarButton
+                href={`tel:${contact.phoneRaw}`}
+                lightColor="#06b6d4"
+                backgroundColor="#0f172a"
+                duration={7}
+                className="h-10 px-5 text-sm"
+              >
+                {contact.phone}
+              </StarButton>
+            </motion.div>
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href={`tel:${contact.phoneRaw}`}
-              className="hidden sm:flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              {contact.phone}
-            </a>
-            <StarButton
-              lightColor="#10b981"
-              backgroundColor="#0f172a"
-              duration={7}
-              className="h-9 px-5 text-sm"
-              href={hero.ctaUrl}
-              target="_blank"
-            >
-              {hero.ctaText}
-            </StarButton>
+          {/* Lamp beam at bottom edge of header */}
+          <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+            <div className="relative flex justify-center h-0">
+              <motion.div
+                initial={{ width: "8rem", opacity: 0 }}
+                animate={{ width: "100%", opacity: 0.6 }}
+                transition={{ delay: 0.3, duration: 1.07, ease: "easeInOut" }}
+                className="absolute top-0 h-2.5 bg-cyan-500 blur-lg"
+              />
+              <motion.div
+                initial={{ width: "6rem", opacity: 0 }}
+                animate={{ width: "100%", opacity: 0.97 }}
+                transition={{ delay: 0.3, duration: 1.07, ease: "easeInOut" }}
+                className="absolute top-0 h-px bg-cyan-400 blur-md"
+              />
+              <motion.div
+                initial={{ width: "10rem", opacity: 0 }}
+                animate={{ width: "100%", opacity: 1 }}
+                transition={{ delay: 0.3, duration: 1.07, ease: "easeInOut" }}
+                className="absolute top-0 h-px bg-cyan-400 opacity-50"
+              />
+            </div>
           </div>
         </div>
-      </nav>
+      </header>
 
       {/* ── Hero Section ───────────────────────────────────── */}
       <AnimatedBackground variant="green" intensity="strong">
-        <section className="relative min-h-screen flex items-center justify-center pt-16">
+        <section className="relative min-h-screen flex items-center justify-center pt-24 md:pt-44" id="hero">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -447,13 +484,12 @@ export default function RecruitPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Image
-                src="/images/owl-logo.png"
-                alt="LendWise"
-                width={28}
-                height={28}
-                className="rounded-full"
+                src="/images/lendwise-text-only.png"
+                alt="LendWise Mortgage"
+                width={160}
+                height={30}
+                className="opacity-80"
               />
-              <span className="font-semibold">{company.name}</span>
             </div>
 
             <div className="flex items-center gap-6">
