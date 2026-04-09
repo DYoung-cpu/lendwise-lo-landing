@@ -65,12 +65,12 @@ export async function POST(request: NextRequest) {
     headers: GHL_HEADERS(apiKey),
     body: JSON.stringify({
       customFields: [
-        { id: "qLiAOxT3bMHfSfGHWwbQ", value: data.currentRate },
-        { id: "t1gR6ovnXa3TMfs0F0rR", value: data.loanAmount },
-        { id: "IW5xOSmSB1P8VYg8yUHx", value: data.propertyValue },
-        { id: "qxzviZFXnoSnC745XZd1", value: data.creditScore },
-        { id: "qKpwR700GRaVW9f6Mm72", value: data.occupancyType },
-        { id: "34AGma4wuOcE7y2vEbrj", value: data.currentLoanProgram },
+        { id: "5dxPYZDn0jcCawMa2v1P", value: data.currentRate },
+        { id: "5rv9ojFH3SxFeLsco4Bj", value: data.loanAmount },
+        { id: "vtisaPzXVeWRhkmy8dyk", value: data.propertyValue },
+        { id: "srGW8uy9TFgHPucr1Rx7", value: data.creditScore },
+        { id: "yrrFuBH5vFNxevrrhTml", value: data.occupancyType },
+        { id: "TxHK81KyYG3fPwPr3KXH", value: data.currentLoanProgram },
       ],
     }),
   });
