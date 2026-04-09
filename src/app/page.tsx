@@ -769,7 +769,7 @@ export default function DavidYoungPage() {
 
         <div className="flex gap-8 justify-center text-sm text-gray-500">
           <span>NMLS #{loProfile.nmls}</span>
-          <span>DRE #{loProfile.dre}</span>
+          {loProfile.dre && <span>DRE #{loProfile.dre}</span>}
         </div>
       </AnimatedBackground>
 
