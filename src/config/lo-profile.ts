@@ -2,62 +2,52 @@
  * LO Profile Configuration
  * ========================
  * Single source of truth for all Loan Officer personal data.
- *
- * To customize for a new LO:
- *  1. Update the fields below with the LO's info
- *  2. Drop their headshot into public/images/team/ and update photoPath
- *  3. Update the applicationUrl with their workFlowId & siteId
- *  4. Replace the reviews with the LO's own testimonials
- *  5. Adjust the programs array to match what the LO offers
- *  6. Restart the dev server
- *
- * Everything else — layout, design, animations — stays untouched.
  */
 
 export const loProfile = {
   // ── Personal ──────────────────────────────────────────────
-  firstName: "Frankie",
-  lastName: "Fahimi",
-  fullName: "Frankie Fahimi",
-  title: "Loan Officer",
-  tagline: "Real Estate Expertise. Mortgage Excellence.",
-  photoPath: "/images/team/frankie-fahimi.jpg",
+  firstName: "Morci",
+  lastName: "Dakhli",
+  fullName: "Morci Dakhli",
+  title: "Branch Manager",
+  tagline: "Thousands of Loans. One Standard of Excellence.",
+  photoPath: "/images/team/morci-dakhli.jpg",
 
   // ── Bio (hero section) ───────────────────────────────────
-  heroExperience: "a decade",
-  heroAchievement: "a proven track record in real estate and lending",
+  heroExperience: "decades",
+  heroAchievement: "thousands of closed loans across every product type",
   heroDescription:
-    "I bring something most loan officers can\u2019t \u2014 years on the real estate side. I\u2019ve sat where your agent sits, solved the problems before they become yours, and now I bring that same intensity to getting your mortgage done right.",
+    "From A-paper conforming to complex commercial financing, I\u2019ve done it all \u2014 thousands of times. My depth of experience means your loan gets the attention, creativity, and precision it deserves.",
 
-  // ── Bio (about section — plain text, apostrophes use \u2019) ──
+  // ── Bio (about section) ──────────────────────────────────
   aboutBio:
-    "After years as a licensed real estate professional, I made the transition to mortgage lending \u2014 and I brought everything I learned with me. I understand the pressure agents face, the timelines borrowers worry about, and the details that make or break a transaction. That dual perspective means I don\u2019t just process loans \u2014 I anticipate issues before they surface and resolve them before they become problems. Whether you\u2019re a first-time buyer, a seasoned investor, or a real estate partner looking for a lender who truly gets it, I\u2019m here. Available, dedicated, and always in your corner.",
+    "With thousands of closed loans under my belt, I bring a level of experience that\u2019s hard to match. I\u2019ve structured everything from straightforward conventional purchases to intricate commercial property deals \u2014 and every scenario in between. My clients and referral partners trust me because I\u2019ve been in the trenches long enough to know exactly how to get a deal done, no matter how complex. Whether you\u2019re a first-time buyer, a seasoned investor, or a borrower with a unique situation, I have the tools, the knowledge, and the track record to deliver. I don\u2019t just close loans \u2014 I build long-term relationships built on results.",
 
   // ── "Why Work With Me" Cards ───────────────────────────────
   aboutCards: [
     {
       img: "/images/icons/person-check.png",
-      title: "Both Sides of the Deal",
-      desc: "Years in real estate means I understand your agent\u2019s challenges and your concerns as a borrower \u2014 and I bridge the gap.",
+      title: "Thousands of Loans Closed",
+      desc: "A track record that speaks for itself \u2014 from A-paper to commercial, I\u2019ve seen and closed every type of deal.",
     },
     {
       img: "/images/icons/chip.png",
-      title: "Technology Forward",
-      desc: "I leverage AI and automation to ensure flawless execution \u2014 faster approvals, smarter processing, nothing falling through the cracks.",
+      title: "Full Spectrum Expertise",
+      desc: "Conventional, government, Non-QM, commercial \u2014 I don\u2019t specialize in one thing, I specialize in everything.",
     },
     {
       img: "/images/icons/globe.png",
-      title: "Broad Reach",
-      desc: "Serving borrowers across multiple markets with local knowledge and a nationwide lending platform.",
+      title: "Unmatched Experience",
+      desc: "Decades in the business means I\u2019ve navigated every market condition, every guideline change, and every curveball.",
     },
     {
       img: "/images/icons/chip-dark.png",
-      title: "Always Available",
-      desc: "I don\u2019t disappear after you apply. Call, text, or email \u2014 I\u2019m here when you need me, every step of the way.",
+      title: "Results You Can Count On",
+      desc: "I don\u2019t make promises I can\u2019t keep. When I say your loan will close, it closes.",
     },
   ],
 
-  // ── Loan Programs (toggle per LO) ─────────────────────────
+  // ── Loan Programs ─────────────────────────────────────────
   programs: [
     { img: "/images/icons/programs/conventional.png", title: "Conventional", desc: "Traditional financing" },
     { img: "/images/icons/programs/jumbo.png", title: "Jumbo", desc: "Beyond conforming limits" },
@@ -68,21 +58,21 @@ export const loProfile = {
     { img: "/images/icons/programs/fix-flip.png", title: "Fix & Flip", desc: "Short-term investor" },
     { img: "/images/icons/programs/first-time-buyer.png", title: "First Time Buyer", desc: "New homeowners" },
     { img: "/images/icons/programs/heloc.png", title: "HELOCs", desc: "Home equity access" },
+    { img: "/images/icons/programs/conventional.png", title: "Commercial", desc: "Business properties" },
   ],
 
   // ── Reviews / Testimonials ─────────────────────────────────
-  // Empty for now — section will be hidden until Frankie has testimonials
   reviews: [] as { name: string; text: string; rating: number }[],
 
   // ── Contact ──────────────────────────────────────────────
-  phone: "(818) 929-2929",
-  phoneRaw: "+18189292929",
-  email: "frankie@lendwisemtg.com",
-  smsRaw: "+18189292929",
+  phone: "(310) 954-6805",
+  phoneRaw: "+13109546805",
+  email: "morci@lendwisemtg.com",
+  smsRaw: "+13109546805",
 
   // ── Credentials ──────────────────────────────────────────
-  nmls: "2808072",
-  dre: "",
+  nmls: "1613184",
+  dre: "02032185",
 
   // ── Company ──────────────────────────────────────────────
   company: {
@@ -104,20 +94,20 @@ export const loProfile = {
 
   // ── Application Link ─────────────────────────────────────
   applicationUrl:
-    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=ffahimi&workFlowId=233348",
+    "https://lendwisemtg.mymortgage-online.com/loan-app/?siteId=1956469515&lar=mdahkli&workFlowId=233348",
 
   // ── Calendar Link ────────────────────────────────────────
-  calendarUrl: "https://calendar.app.google/8nbT4V6tmso9oq7eA",
+  calendarUrl: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3Qm_3jMj__O6_AYR2krRVB16t5PTa85tna1pjWtf5mQUjl8sx4yDjpjRimcDe-bS9WSk_xEXLw",
 
   // ── Page Metadata ────────────────────────────────────────
   meta: {
-    title: "Frankie Fahimi | Loan Officer at LendWise Mortgage",
+    title: "Morci Dakhli | Branch Manager at LendWise Mortgage",
     description:
-      "Frankie Fahimi - Loan Officer at LendWise Mortgage Corporation. Real Estate Expertise. Mortgage Excellence. From years in real estate to mortgage lending — I bring both sides of the deal to your corner.",
+      "Morci Dakhli - Branch Manager at LendWise Mortgage Corporation. Thousands of loans closed across every product type from A-paper to commercial financing.",
     keywords:
-      "mortgage, home loan, Frankie Fahimi, LendWise, loan officer, apply, refinance, purchase, California, Florida",
-    ogTitle: "Frankie Fahimi | LendWise Mortgage",
+      "mortgage, home loan, Morci Dakhli, LendWise, branch manager, apply, refinance, purchase, commercial, California",
+    ogTitle: "Morci Dakhli | LendWise Mortgage",
     ogDescription:
-      "Real Estate Expertise. Mortgage Excellence. Work with a loan officer who understands both sides of the transaction.",
+      "Thousands of loans. One standard of excellence. Work with a branch manager who has seen and closed it all.",
   },
 };
