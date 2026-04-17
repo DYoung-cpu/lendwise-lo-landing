@@ -19,41 +19,41 @@ export const loProfile = {
   firstName: "Jeff",
   lastName: "Schlesinger",
   fullName: "Jeff Schlesinger",
-  title: "President, Full House Capital \u2022 Senior Mortgage Banker, LendWise Mortgage",
-  tagline: "Precision lending for complex transactions.",
+  title: "Senior Mortgage Banker | Direct Lender",
+  tagline: "Precision lending for every stage of homeownership.",
   photoPath: "/images/team/jeff-schlesinger.jpg",
 
   // ── Bio (hero section) ───────────────────────────────────
-  heroExperience: "20+ years",
-  heroAchievement: "trusted advisor to high-net-worth borrowers and referral partners",
+  heroExperience: "20 years",
+  heroAchievement: "trusted by clients at every stage of homeownership",
   heroDescription:
-    "but what matters most hasn\u2019t changed \u2014 precision, discretion, and results. Borrowers, realtors, and advisors bring me the transactions that must close smoothly, creatively, and without surprises.",
+    "from first-time buyers to high-net-worth borrowers with complex financing needs. What matters most hasn\u2019t changed \u2014 precision, discretion, and results. Borrowers, real estate professionals, and financial advisors rely on me for transactions that need to close smoothly, strategically, and without surprises.",
 
   // ── Bio (about section — plain text, apostrophes use \u2019, paragraphs split on \n\n) ──
   aboutBio:
-    "For more than 20 years, I have advised clients on complex mortgage strategies where precision matters and execution is non-negotiable. As President of Full House Capital, Inc. and Senior Mortgage Banker with LendWise Mortgage, my practice is built on trust, long-term relationships, and consistent results. While I operate primarily in California, I am frequently consulted on lending scenarios nationwide by borrowers, real estate professionals, and financial advisors who value experienced guidance in high-stakes transactions.\n\nI work across the full spectrum of residential financing, specializing in jumbo loans, agency products, FHA and VA financing, Non-QM and alternative income solutions, and investment properties. My clients range from first-time buyers to high-net-worth individuals, entrepreneurs, and sophisticated investors \u2014 many with financial profiles that require thoughtful structuring rather than formulaic lending.\n\nReferral partners often describe me as the lender they bring in when a transaction must close smoothly, creatively, and without surprises. I pride myself on being highly accessible, solutions-oriented, and proactive, ensuring my clients feel informed and confident from initial strategy through closing.\n\nBefore mortgage banking, I built a career in television and film production finance \u2014 an experience that sharpened my financial acumen, attention to detail, and ability to perform under pressure. Today, those skills allow me to anticipate challenges early, structure loans strategically, and deliver certainty in competitive markets. My reputation has been built not just on transactions, but on becoming a trusted advisor to the clients and professionals who rely on me year after year.",
+    "For more than 20 years, I have helped clients navigate mortgage decisions where experience, strategy, and execution matter. My business is built on trust, long-term relationships, and delivering results when there is little room for error.\n\nI work with a wide range of clients, from first-time homebuyers to self-employed borrowers, investors, and high-net-worth individuals. I provide clear guidance and tailored financing solutions across conventional, jumbo, FHA, VA, and Non-QM lending for owner-occupied and investment properties \u2014 whether purchase or refinance, full documentation or alternative income qualification.\n\nWhat sets me apart is personal service. When you call, you work directly with me. No call centers, no handoffs, and no guesswork. I stay involved from initial consultation through closing, keeping clients informed and transactions moving smoothly.\n\nReferral partners often describe me as the lender they call when a deal needs to close creatively, efficiently, and without surprises. My reputation has been built on solving problems early, communicating clearly, and being a trusted resource clients return to year after year.",
 
   // ── "Why Work With Me" Cards ───────────────────────────────
   aboutCards: [
     {
       img: "/images/icons/person-check.png",
-      title: "Trusted Advisor",
-      desc: "20+ years advising borrowers, realtors, and financial advisors on high-stakes transactions.",
+      title: "Direct Access",
+      desc: "Call, and you reach me. No call centers, no handoffs, no guesswork \u2014 I stay involved through closing.",
     },
     {
       img: "/images/icons/chip.png",
-      title: "Complex Scenarios",
-      desc: "Jumbo, Non-QM, alternative income, and investment properties for sophisticated borrowers.",
+      title: "Every Kind of Borrower",
+      desc: "First-time buyers, self-employed borrowers, investors, and high-net-worth clients \u2014 tailored to your situation.",
     },
     {
       img: "/images/icons/globe.png",
-      title: "California & Beyond",
-      desc: "Based in California, consulted nationwide on complex lending scenarios.",
+      title: "Full Program Lineup",
+      desc: "Conventional, jumbo, FHA, VA, and Non-QM \u2014 full-doc or alternative income, purchase or refinance.",
     },
     {
       img: "/images/icons/chip-dark.png",
-      title: "Executed With Precision",
-      desc: "Structured strategically, closed smoothly \u2014 the lender brought in when the deal must happen.",
+      title: "The Lender You Call",
+      desc: "Referral partners bring me the deals that need to close creatively, efficiently, and without surprises.",
     },
   ],
 
@@ -158,13 +158,13 @@ export const loProfile = {
 
   // ── Page Metadata ────────────────────────────────────────
   meta: {
-    title: "Jeff Schlesinger | Senior Mortgage Banker at LendWise Mortgage",
+    title: "Jeff Schlesinger | Senior Mortgage Banker | Direct Lender",
     description:
-      "Jeff Schlesinger - President of Full House Capital and Senior Mortgage Banker at LendWise Mortgage. 20+ years advising borrowers on jumbo, agency, FHA/VA, Non-QM, and investment lending.",
+      "Jeff Schlesinger \u2014 Senior Mortgage Banker and Direct Lender at LendWise Mortgage. 20 years guiding first-time buyers, investors, and high-net-worth borrowers on conventional, jumbo, FHA, VA, and Non-QM lending.",
     keywords:
-      "mortgage, home loan, Jeff Schlesinger, LendWise, jumbo, Non-QM, senior mortgage banker, apply, refinance, purchase",
+      "mortgage, home loan, Jeff Schlesinger, LendWise, jumbo, Non-QM, senior mortgage banker, direct lender, apply, refinance, purchase",
     ogTitle: "Jeff Schlesinger | LendWise Mortgage",
     ogDescription:
-      "Precision lending for complex transactions. 20+ years advising borrowers, realtors, and financial advisors.",
+      "Precision lending for every stage of homeownership. 20 years advising borrowers, realtors, and financial advisors.",
   },
 };
