@@ -61,7 +61,7 @@ export function ParallaxHero() {
       <div className="relative z-10 max-w-6xl w-full mx-auto pt-32 md:pt-56 lg:pt-64">
         <div className="flex flex-col md:flex-row items-center md:items-center justify-center gap-8 md:gap-0" style={{ columnGap: '150px' }}>
           {/* Left side - Text & Info */}
-          <div className="max-w-xs md:max-w-[28rem] text-center md:text-left">
+          <div className="max-w-xs md:max-w-[36rem] text-center md:text-left">
             {/* Name */}
             <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
@@ -94,7 +94,7 @@ export function ParallaxHero() {
 
             {/* Description */}
             <motion.p
-              className="text-base md:text-lg text-slate-400 max-w-[500px] leading-[1.7] mb-8"
+              className="text-base md:text-lg text-slate-400 max-w-[580px] leading-[1.7] mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
