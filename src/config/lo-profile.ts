@@ -20,40 +20,38 @@ export const loProfile = {
   lastName: "Schlesinger",
   fullName: "Jeff Schlesinger",
   title: "Senior Mortgage Banker | Direct Lender",
-  tagline: "Precision lending for every stage of homeownership.",
+  tagline: "Precision, discretion, and results.",
   photoPath: "/images/team/jeff-schlesinger.jpg",
 
-  // ── Bio (hero section) ───────────────────────────────────
-  heroExperience: "20 years",
-  heroAchievement: "trusted by clients at every stage of homeownership",
-  heroDescription:
-    "from first-time buyers to high-net-worth borrowers with complex financing needs. What matters most hasn\u2019t changed \u2014 precision, discretion, and results. Borrowers, real estate professionals, and financial advisors rely on me for transactions that need to close smoothly, strategically, and without surprises.",
+  // ── Hero Intro (Jeff's exact snapshot intro — do not modify) ──
+  heroIntro:
+    "With over 20 years in the mortgage industry, I\u2019ve earned the trust of clients across every stage of homeownership, from first-time buyers purchasing their first home to experienced and high-net-worth borrowers with more complex financing needs. What matters most has never changed: precision, discretion, and results. Borrowers, real estate professionals, and financial advisors rely on me for transactions that need to close smoothly, strategically, and without surprises.",
 
-  // ── Bio (about section — plain text, apostrophes use \u2019, paragraphs split on \n\n) ──
+  // ── Bio (about section — Jeff's exact "Why Work With Me" copy, paragraphs split on \n\n) ──
   aboutBio:
-    "For more than 20 years, I have helped clients navigate mortgage decisions where experience, strategy, and execution matter. My business is built on trust, long-term relationships, and delivering results when there is little room for error.\n\nI work with a wide range of clients, from first-time homebuyers to self-employed borrowers, investors, and high-net-worth individuals. I provide clear guidance and tailored financing solutions across conventional, jumbo, FHA, VA, and Non-QM lending for owner-occupied and investment properties \u2014 whether purchase or refinance, full documentation or alternative income qualification.\n\nWhat sets me apart is personal service. When you call, you work directly with me. No call centers, no handoffs, and no guesswork. I stay involved from initial consultation through closing, keeping clients informed and transactions moving smoothly.\n\nReferral partners often describe me as the lender they call when a deal needs to close creatively, efficiently, and without surprises. My reputation has been built on solving problems early, communicating clearly, and being a trusted resource clients return to year after year.",
+    "For more than 20 years, I have helped clients navigate mortgage decisions where experience, strategy, and execution matter. My business is built on trust, long-term relationships, and delivering results when there is little room for error.\n\nI work with a wide range of clients, from first-time homebuyers to self-employed borrowers, investors, and high-net-worth individuals. I provide clear guidance and tailored financing solutions across conventional, jumbo, FHA, VA, and Non-QM lending for owner-occupied and investment properties, whether purchase or refinance, full documentation or alternative income qualification.\n\nWhat sets me apart is personal service. When you call, you work directly with me. No call centers, no handoffs, and no guesswork. I stay involved from initial consultation through closing, keeping clients informed and transactions moving smoothly.\n\nReferral partners often describe me as the lender they call when a deal needs to close creatively, efficiently, and without surprises. My reputation has been built on solving problems early, communicating clearly, and being a trusted resource clients return to year after year.",
 
-  // ── "Why Work With Me" Cards ───────────────────────────────
+  // ── "Why Work With Me" Cards (descriptions are direct excerpts from Jeff's copy) ──
   aboutCards: [
     {
       img: "/images/icons/person-check.png",
       title: "Direct Access",
-      desc: "Call, and you reach me. No call centers, no handoffs, no guesswork \u2014 I stay involved through closing.",
+      desc: "When you call, you work directly with me. No call centers, no handoffs, and no guesswork.",
     },
     {
       img: "/images/icons/chip.png",
-      title: "Every Kind of Borrower",
-      desc: "First-time buyers, self-employed borrowers, investors, and high-net-worth clients \u2014 tailored to your situation.",
+      title: "Every Client",
+      desc: "From first-time homebuyers to self-employed borrowers, investors, and high-net-worth individuals.",
     },
     {
       img: "/images/icons/globe.png",
-      title: "Full Program Lineup",
-      desc: "Conventional, jumbo, FHA, VA, and Non-QM \u2014 full-doc or alternative income, purchase or refinance.",
+      title: "Full Program Range",
+      desc: "Conventional, jumbo, FHA, VA, and Non-QM lending for owner-occupied and investment properties.",
     },
     {
       img: "/images/icons/chip-dark.png",
-      title: "The Lender You Call",
-      desc: "Referral partners bring me the deals that need to close creatively, efficiently, and without surprises.",
+      title: "Close Without Surprises",
+      desc: "Referral partners describe me as the lender they call when a deal needs to close creatively, efficiently, and without surprises.",
     },
   ],
 
@@ -70,7 +68,7 @@ export const loProfile = {
     { img: "/images/icons/programs/heloc.png", title: "HELOCs", desc: "Home equity access" },
   ],
 
-  // ── Reviews / Testimonials ─────────────────────────────────
+  // ── Reviews / Testimonials (placeholder — David approved keeping generic for now) ──
   reviews: [
     {
       name: "Sarah M.",
@@ -104,7 +102,7 @@ export const loProfile = {
     },
     {
       name: "Chris P.",
-      text: "Jeff called me the day rates dropped and we locked in immediately. Saved us thousands \u2014 that\u2019s the kind of attention you want.",
+      text: "Jeff called me the day rates dropped and we locked in immediately. Saved us thousands, that\u2019s the kind of attention you want.",
       rating: 5,
     },
     {
@@ -160,11 +158,11 @@ export const loProfile = {
   meta: {
     title: "Jeff Schlesinger | Senior Mortgage Banker | Direct Lender",
     description:
-      "Jeff Schlesinger \u2014 Senior Mortgage Banker and Direct Lender at LendWise Mortgage. 20 years guiding first-time buyers, investors, and high-net-worth borrowers on conventional, jumbo, FHA, VA, and Non-QM lending.",
+      "Jeff Schlesinger, Senior Mortgage Banker and Direct Lender at LendWise Mortgage. Over 20 years in the mortgage industry, trusted by clients across every stage of homeownership.",
     keywords:
       "mortgage, home loan, Jeff Schlesinger, LendWise, jumbo, Non-QM, senior mortgage banker, direct lender, apply, refinance, purchase",
     ogTitle: "Jeff Schlesinger | LendWise Mortgage",
     ogDescription:
-      "Precision lending for every stage of homeownership. 20 years advising borrowers, realtors, and financial advisors.",
+      "With over 20 years in the mortgage industry, trusted by clients across every stage of homeownership. Precision, discretion, and results.",
   },
 };

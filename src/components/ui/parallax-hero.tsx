@@ -99,8 +99,7 @@ export function ParallaxHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Over <span className="text-cyan-400">{loProfile.heroExperience}</span> in the mortgage
-              business and {loProfile.heroAchievement} — {loProfile.heroDescription}
+              {loProfile.heroIntro}
             </motion.p>
 
           </div>
