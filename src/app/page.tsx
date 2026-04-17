@@ -612,7 +612,7 @@ export default function DavidYoungPage() {
             </h2>
             <div className="text-gray-300 max-w-2xl mx-auto leading-relaxed space-y-4 text-left">
               {loProfile.aboutBio.split("\n\n").map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
+                <p key={i} style={{ textWrap: "pretty" }}>{paragraph}</p>
               ))}
             </div>
           </motion.div>
