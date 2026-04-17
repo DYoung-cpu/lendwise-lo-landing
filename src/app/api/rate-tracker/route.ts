@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
   const apiKey = process.env.GHL_PIT_KEY;
   const locationId = process.env.GHL_LOCATION_ID;
-  const notifyEmail = process.env.NOTIFY_EMAIL || "david@lendwisemtg.com";
+  const notifyEmail = process.env.NOTIFY_EMAIL || "Jeff@JeffSchlesinger.com";
 
   if (!apiKey || !locationId) {
     return NextResponse.json(
@@ -65,12 +65,12 @@ export async function POST(request: NextRequest) {
     headers: GHL_HEADERS(apiKey),
     body: JSON.stringify({
       customFields: [
-        { id: "BWOyzh358ISHEAFKX6dv", value: data.currentRate },
-        { id: "WHRMfQQq1DSX715jVLR4", value: data.loanAmount },
-        { id: "iEZViOPPgSVnDefhJw4L", value: data.propertyValue },
-        { id: "71JeUzXCyYwdcuy9lCoA", value: data.creditScore },
-        { id: "UJqoVSs1pByxZtK7yL8c", value: data.occupancyType },
-        { id: "KcGtQLC71K3WbziTWrD9", value: data.currentLoanProgram },
+        { id: "dudMAm5h03pMYPZ7hQ69", value: data.currentRate },
+        { id: "wTK5K64cigyjLT6odX9t", value: data.loanAmount },
+        { id: "CWpoAjzHjSgx0xZiFi7z", value: data.propertyValue },
+        { id: "L6z3lwCsvrUD4z2PyjBL", value: data.creditScore },
+        { id: "YaOV34usXjzvJ1aW7cns", value: data.occupancyType },
+        { id: "NhHEqMUFMYDzOWbp0Kc8", value: data.currentLoanProgram },
       ],
     }),
   });

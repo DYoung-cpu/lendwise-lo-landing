@@ -610,9 +610,11 @@ export default function DavidYoungPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
               Why Work With Me
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              {loProfile.aboutBio}
-            </p>
+            <div className="text-gray-300 max-w-2xl mx-auto leading-relaxed space-y-4">
+              {loProfile.aboutBio.split("\n\n").map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
