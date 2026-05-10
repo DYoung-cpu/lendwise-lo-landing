@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { loProfile } from "@/config/lo-profile";
+import { companyProfile } from "@/config/company-profile";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,19 +14,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://davidyoung.teamlendwise.com"),
-  title: loProfile.meta.title,
-  description: loProfile.meta.description,
-  keywords: loProfile.meta.keywords,
+  metadataBase: new URL("https://joinlendwise.teamlendwise.com"),
+  title: companyProfile.meta.title,
+  description: companyProfile.meta.description,
+  keywords: companyProfile.meta.keywords,
   openGraph: {
-    title: loProfile.meta.ogTitle,
-    description: loProfile.meta.ogDescription,
+    title: companyProfile.meta.ogTitle,
+    description: companyProfile.meta.ogDescription,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: loProfile.meta.ogTitle,
-    description: loProfile.meta.ogDescription,
+    title: companyProfile.meta.ogTitle,
+    description: companyProfile.meta.ogDescription,
   },
 };
 
