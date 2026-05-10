@@ -1,7 +1,7 @@
 /**
  * Recruiter Map
  * =============
- * Maps the ?ref= URL parameter on joinlendwise.teamlendwise.com to a recruiter
+ * Maps the ?ref= URL parameter on join.teamlendwise.com to a recruiter
  * email so inbound form submissions route back to the LO who shared the link.
  *
  * Add a slug per LO who'll share the link with prospects. Slugs are
@@ -9,9 +9,9 @@
  * back to David.
  *
  * Examples:
- *   joinlendwise.teamlendwise.com/?ref=paul   → Paul gets the lead
- *   joinlendwise.teamlendwise.com/?ref=david  → David gets the lead
- *   joinlendwise.teamlendwise.com             → David (fallback)
+ *   join.teamlendwise.com/?ref=paul   → Paul gets the lead
+ *   join.teamlendwise.com/?ref=david  → David gets the lead
+ *   join.teamlendwise.com             → David (fallback)
  */
 
 export type Recruiter = {

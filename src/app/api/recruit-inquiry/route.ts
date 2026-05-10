@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
       phone: phone || undefined,
       companyName: company || undefined,
       tags,
-      source: `Landing Page - joinlendwise (ref=${slug})`,
+      source: `Landing Page - join.teamlendwise.com (ref=${slug})`,
     }),
   });
 
@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
         {
           id: RECRUIT_FIELD_IDS.recruitmentNotes,
           value: [
-            `Inbound from joinlendwise.teamlendwise.com`,
+            `Inbound from join.teamlendwise.com`,
             `Referrer: ${recruiter.name} (${matched ? `?ref=${slug}` : "no ref / fallback"})`,
             `Company: ${company || "—"}`,
             `NMLS: ${nmls || "—"}`,
@@ -141,7 +141,7 @@ export async function POST(request: NextRequest) {
     headers: GHL_HEADERS(apiKey),
     body: JSON.stringify({
       body:
-        `Inbound recruit submission — joinlendwise.teamlendwise.com\n\n` +
+        `Inbound recruit submission — join.teamlendwise.com\n\n` +
         `Routed to: ${recruiter.name} <${recruiter.email}>\n` +
         `Ref slug: ${slug}${matched ? "" : "  (UNMATCHED — fell back to David)"}\n` +
         `Submitted: ${submittedAt} PT\n\n` +
@@ -224,7 +224,7 @@ function buildNotifyEmailHtml(p: {
 
   return `<div style="font-family:Arial,sans-serif;color:#0a1628;max-width:600px;">
   <h2 style="color:#0a1628;border-bottom:2px solid #C9A227;padding-bottom:8px;">
-    New Recruit Lead — joinlendwise.teamlendwise.com
+    New Recruit Lead — join.teamlendwise.com
   </h2>
   <p style="color:#555;font-size:14px;">Hi ${p.recruiterName.split(" ")[0]},<br/>${refNote}</p>
   <table style="border-collapse:collapse;width:100%;margin-top:16px;font-size:14px;">

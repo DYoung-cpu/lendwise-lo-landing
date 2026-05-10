@@ -1,7 +1,7 @@
 /**
- * LendWise Company Profile (joinlendwise branch)
- * ==============================================
- * Drives the "Why Join LendWise" recruiting page at joinlendwise.teamlendwise.com.
+ * LendWise Company Profile (join branch)
+ * ======================================
+ * Drives the "Why Join LendWise" recruiting page at join.teamlendwise.com.
  * Replaces lo-profile.ts on this branch — page.tsx reads from here, not from lo-profile.
  *
  * To update content: edit the fields below, drop new images into public/, redeploy.
