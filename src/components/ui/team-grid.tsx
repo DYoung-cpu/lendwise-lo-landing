@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 import { companyProfile } from "@/config/company-profile";
 
 export function TeamGrid() {
   if (!companyProfile.team || companyProfile.team.length === 0) return null;
 
   return (
-    <section id="team" className="relative bg-slate-950 py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-6">
+    <AnimatedBackground variant="dark" intensity="medium" id="team" className="py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +22,7 @@ export function TeamGrid() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Real people. Real ops. Real shop.
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-slate-300 max-w-2xl mx-auto">
             Operations, processing, marketing, and IT — all in-house, all reachable. You're not
             calling a 1-800 number when a deal needs to close.
           </p>
@@ -46,11 +47,11 @@ export function TeamGrid() {
                 />
               </div>
               <p className="text-white font-semibold text-sm">{member.name}</p>
-              <p className="text-xs text-slate-400">{member.title}</p>
+              <p className="text-xs text-slate-300">{member.title}</p>
             </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedBackground>
   );
 }

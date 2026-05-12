@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CompanyHero } from "@/components/ui/company-hero";
-import { TrustBand } from "@/components/ui/trust-band";
 import { BuiltGrid } from "@/components/ui/built-grid";
+import { CompSection } from "@/components/ui/comp-section";
 import { ProgramsAndInvestors } from "@/components/ui/programs-investors";
 import { TeamGrid } from "@/components/ui/team-grid";
 import { RecruitForm } from "@/components/ui/recruit-form";
@@ -51,13 +51,13 @@ export default function JoinLendWisePage() {
                 What We've Built
               </StarButton>
               <StarButton
-                href="#programs"
-                lightColor="#10b981"
+                href="#comp"
+                lightColor="#d4af37"
                 backgroundColor="#0f172a"
-                duration={8}
+                duration={6}
                 className="h-10 px-5 text-sm"
               >
-                Investors
+                Comp
               </StarButton>
               <StarButton
                 href="#team"
@@ -69,13 +69,22 @@ export default function JoinLendWisePage() {
                 Team
               </StarButton>
               <StarButton
+                href="#programs"
+                lightColor="#10b981"
+                backgroundColor="#0f172a"
+                duration={8}
+                className="h-10 px-5 text-sm"
+              >
+                Partners
+              </StarButton>
+              <StarButton
                 href="#cta"
-                lightColor="#d4af37"
+                lightColor="#22d3ee"
                 backgroundColor="#0f172a"
                 duration={5}
                 className="h-10 px-5 text-sm"
               >
-                Talk to a Manager
+                Let's Talk
               </StarButton>
             </motion.div>
           </div>
@@ -107,10 +116,10 @@ export default function JoinLendWisePage() {
 
       {/* Sections */}
       <CompanyHero />
-      <TrustBand />
       <BuiltGrid />
-      <ProgramsAndInvestors />
+      <CompSection />
       <TeamGrid />
+      <ProgramsAndInvestors />
       <RecruitForm />
 
       {/* Footer */}

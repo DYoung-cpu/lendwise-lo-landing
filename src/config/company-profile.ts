@@ -1,7 +1,7 @@
 /**
  * LendWise Company Profile (join branch)
  * ======================================
- * Drives the "Why Join LendWise" recruiting page at join.teamlendwise.com.
+ * Drives the "Why Join LendWise" recruiting page at teamlendwise.com.
  * Replaces lo-profile.ts on this branch — page.tsx reads from here, not from lo-profile.
  *
  * To update content: edit the fields below, drop new images into public/, redeploy.
@@ -13,10 +13,11 @@ export const companyProfile = {
     eyebrow: "FOR LOAN OFFICERS",
     headline: "Built by LOs.\nEngineered for closers.",
     subhead:
-      "LendWise gives independent loan officers the investor breadth, in-house operations, and AI tooling to close more loans without the brokerage tax.",
-    primaryCtaLabel: "Talk to a Manager",
+      "A direct lender with the products, operations, and team to keep your pipeline moving.",
+    primaryCtaLabel: "Let's Talk",
     primaryCtaTarget: "#cta", // anchor or external URL
     logoPath: "/images/lendwise-hero-logo.png",
+    licenseLine: "Licensed in CA, TX, FL, CO, PA, NC — and growing daily.",
   },
 
   // ── Trust Band ──────────────────────────────────────────────────────
@@ -30,48 +31,88 @@ export const companyProfile = {
   },
 
   // ── What We've Built ────────────────────────────────────────────────
+  // The lender-capability section. 4 cards in 2×2, icon-LEFT layout.
+  // Focused on the operational reasons an LO chooses us — not marketing tools.
   built: [
     {
-      icon: "/images/icons/chip.png",
-      title: "Scenario Desk",
-      desc: "AI-powered investor and program lookup. Type a niche scenario, get verbatim guideline matches in seconds — not 90 minutes on the phone.",
-    },
-    {
-      icon: "/images/icons/chip-dark.png",
-      title: "AI Marketing Studio",
-      desc: "Generate face-accurate market-update banners, flyers, and social posts on demand. Astria-trained portraits, Gemini-rendered creative.",
+      icon: "/images/icons/person-check.png",
+      title: "Direct Lender · In-House Everything",
+      desc: "We're the lender — not the broker — and every program (FHA, VA, Conventional, Jumbo, Non-QM) is underwritten under our roof. Your decision, your turn-time, all in-house. Quick turn-around times on your loans. No wholesale runaround, no broker-channel handoffs.",
     },
     {
       icon: "/images/icons/globe.png",
-      title: "Personal Landing Page",
-      desc: "Branded subdomain on teamlendwise.com with rate tracker, contact intake, and OG previews — all yours, deployed in a day.",
-    },
-    {
-      icon: "/images/icons/person-check.png",
-      title: "Lock Desk",
-      desc: "Real secondary-market support. Live pricing across the full investor stack. No more guessing which lender will hit your scenario.",
+      title: "Lock Desk That Picks Up the Phone",
+      desc: "Every investor at your fingertips and a real team behind every lock. Need pricing now? Pick up the phone, get an answer. No tickets, no queue, no \"I'll get back to you.\"",
     },
     {
       icon: "/images/icons/chip.png",
-      title: "Pre-Qual Engine",
-      desc: "8-step underwriting pipeline (intake → income → ratios → evaluation) catches deal-killers before you waste hours on a borrower who can't qualify.",
+      title: "Sales Support",
+      desc: "We've automated the data so the answers are at your fingertips — but nothing beats a knowledgeable sales support team you can call to strategize. We've got the best in the business sitting behind every one of our loan officers.",
     },
     {
       icon: "/images/icons/chip-dark.png",
-      title: "Surefire CRM Seat",
-      desc: "ICE Mortgage Tech's automated drip platform. Birthday, anniversary, market updates — all on autopilot for your existing book.",
-    },
-    {
-      icon: "/images/icons/globe.png",
-      title: "GHL Sub-Account",
-      desc: "Your own GoHighLevel CRM with email validation, bulk send, workflow automation, and full pipeline tracking. Keep your contacts forever.",
-    },
-    {
-      icon: "/images/icons/person-check.png",
-      title: "Auto Touchpoints",
-      desc: "Birthday emails with AI-generated personal images. Closing anniversaries. Market alerts on rate moves. Your book never goes cold.",
+      title: "Artemis Market Watcher",
+      desc: "Watches your pipeline and your funded book. When the market moves into action range, she tells you who to call. No more digging through endless spreadsheets.",
     },
   ],
+
+  // ── Marketing ───────────────────────────────────────────────────────
+  // The pipeline-tools section. Same icon-LEFT layout as What We've Built.
+  marketing: {
+    eyebrow: "MARKETING & PIPELINE",
+    headline: "Marketing That Works While You're Closing",
+    subhead:
+      "We built the marketing engine you'd hire a team to build. You stay focused on borrowers — we keep your book warm.",
+    cards: [
+      {
+        icon: "/images/icons/chip.png",
+        title: "Click-to-Market",
+        desc: "Social posts, email campaigns, flyers, co-branded assets — every channel at a click. No more begging marketing or paying a freelancer.",
+      },
+      {
+        icon: "/images/icons/globe.png",
+        title: "Personalized Landing Pages",
+        desc: "Your niche. Your design. Our execution. A branded site that says exactly what you want it to say — built and deployed for you.",
+      },
+      {
+        icon: "/images/icons/chip-dark.png",
+        title: "Daily Market Updates",
+        desc: "Daily rate moves and market intel, branded to you, ready to send. Stay top-of-mind with your book without writing a word.",
+      },
+      {
+        icon: "/images/icons/person-check.png",
+        title: "Data Parser",
+        desc: "Got a stack of contacts buried in a file somewhere? We parse it, clean it, and hand you the tools to start working them. Buried gold, surfaced.",
+      },
+    ],
+  },
+
+  // ── Compensation ────────────────────────────────────────────────────
+  // The recruiting hook. Clean gold-accented cards, no redundant stat blocks.
+  compensation: {
+    eyebrow: "COMPENSATION",
+    headline: "Your Comp, Your Way",
+    subhead:
+      "Originators should control their own economics. No games, no hidden fees.",
+    cards: [
+      {
+        title: "Up to 300 BPS",
+        desc: "Choose anywhere from minimum to 300 basis points — and everything in between. Your production, your pricing power.",
+      },
+      {
+        title: "Change Comp Plans Monthly — Not Yearly",
+        desc: "No annual lock-ins, no penalty. Adjust your comp structure every 30 days to match your pipeline.",
+      },
+      {
+        title: "Get Paid W-2 or 1099 to Your Corporation",
+        desc: "Run it through your corp as a 1099 in most states, or go W-2 for benefits. Only exception is FHA in certain state-specific situations.",
+      },
+      {
+        title: "Competitive Pricing",
+        desc: "Our goal is simple: keep you in the fight. You will not lose deals because of pricing. Period.",
+      },
+    ],
+  },
 
   // ── Programs (reused from lo-profile.ts shape) ──────────────────────
   programs: [
@@ -86,43 +127,95 @@ export const companyProfile = {
     { img: "/images/icons/programs/heloc.png",        title: "HELOCs",       desc: "Home equity access" },
   ],
 
-  // ── Investor Wall ───────────────────────────────────────────────────
-  // Drop logos into public/images/investors/ matching the slug.
-  // greyscale-on-hover-color treatment is applied by the InvestorWall component.
+  // ── Investor Wall (marquee) ─────────────────────────────────────────
+  // Logos in public/images/investors/ matching slug. Rendered by InvestorMarquee
+  // on a light-slate card. Set darkInset: true for white-on-transparent logos
+  // (DeepHaven, Plaza, Rocket Pro etc.) — they'll get a dark mini-card so they
+  // remain visible against the light-slate wall.
   investors: [
-    { name: "Planet Home Lending",       logo: "/images/investors/planet-home.png" },
-    { name: "DeepHaven Mortgage",        logo: "/images/investors/deephaven.png" },
-    { name: "Verus Mortgage Capital",    logo: "/images/investors/verus.png" },
-    { name: "Plaza Home Mortgage",       logo: "/images/investors/plaza.png" },
-    { name: "Eresi",                     logo: "/images/investors/eresi.png" },
-    { name: "Vista Point Mortgage",      logo: "/images/investors/vista-point.png" },
-    { name: "Arc Home",                  logo: "/images/investors/arc-home.png" },
-    { name: "Champions Funding",         logo: "/images/investors/champions.png" },
-    { name: "Carrington Mortgage",       logo: "/images/investors/carrington.png" },
-    { name: "Luxury Mortgage",           logo: "/images/investors/luxury.png" },
-    { name: "Rocket Pro TPO",            logo: "/images/investors/rocket-pro.png" },
+    { name: "Acra",                                logo: "/images/investors/acra.png" },
+    { name: "AD Mortgage",                         logo: "/images/investors/ad-mortgage.png" },
+    { name: "AmWest Funding",                      logo: "/images/investors/amwest.png" },
+    { name: "Angel Oak",                           logo: "/images/investors/angel-oak.png" },
+    { name: "Arc Home",                            logo: "/images/investors/arc-home.png" },
+    { name: "AXOS",                                logo: "/images/investors/axos.png" },
+    { name: "Button Finance",                      logo: "/images/investors/button-finance.png" },
+    { name: "Carrington Mortgage",                 logo: "/images/investors/carrington-v2.png" },
+    { name: "Champions Funding",                   logo: "/images/investors/champions.png" },
+    { name: "ClearEdge",                           logo: "/images/investors/clearedge.png" },
+    { name: "DeepHaven Mortgage",                  logo: "/images/investors/deephaven.png" },
+    { name: "Eresi",                               logo: "/images/investors/eresi-v2.png" },
+    { name: "Figure Lending",                      logo: "/images/investors/figure.png" },
+    { name: "Finance of America Reverse",          logo: "/images/investors/foa-reverse.png" },
+    { name: "Forward Lending",                     logo: "/images/investors/forward-lending.png" },
+    { name: "HomeBridge",                          logo: "/images/investors/homebridge.png" },
+    { name: "HomeXpress",                          logo: "/images/investors/homexpress.png" },
+    { name: "JMAC Lending",                        logo: "/images/investors/jmac.png" },
+    { name: "LendSure",                            logo: "/images/investors/lendsure.png" },
+    { name: "Liberty Reverse",                     logo: "/images/investors/liberty-reverse.png" },
+    { name: "LoanStream Mortgage",                 logo: "/images/investors/loanstream.png" },
+    { name: "Logan Finance",                       logo: "/images/investors/logan-finance.png" },
+    { name: "Luxury Mortgage",                     logo: "/images/investors/luxury.png" },
+    { name: "Mutual of Omaha",                     logo: "/images/investors/mutual-omaha.png" },
+    { name: "Newrez",                              logo: "/images/investors/newrez.png" },
+    { name: "NQM",                                 logo: "/images/investors/nqm.png" },
+    { name: "Pennymac",                            logo: "/images/investors/pennymac.png" },
+    { name: "Planet Home Lending",                 logo: "/images/investors/planet-home.png" },
+    { name: "Plaza Home Mortgage",                 logo: "/images/investors/plaza.png" },
+    { name: "UWM",                                 logo: "/images/investors/uwm.png" },
+    { name: "Verus Mortgage Capital",              logo: "/images/investors/verus.png" },
+    { name: "Vista Point Mortgage",                logo: "/images/investors/vista-point.png" },
   ],
 
   // ── In-House Team ───────────────────────────────────────────────────
-  // Drop headshots into public/images/team/ matching the slug.
+  // 8 members rendered in a 4 × 2 grid: ownership/partners on top, ops VPs below.
   team: [
     {
-      name: "David Young",
-      title: "Founder & President",
-      photo: "/images/team/david-young.jpg",
+      name: "Anthony Amini",
+      title: "President & CEO",
+      photo: "/images/team/anthony-amini-v2.png",
     },
-    // David: add ops, processing, marketing, IT roster here
-    // {
-    //   name: "Wahdat Amini",
-    //   title: "Operations",
-    //   photo: "/images/team/wahdat-amini.jpg",
-    // },
+    {
+      name: "Gady Gabrielzadeh",
+      title: "CFO / Partner",
+      photo: "/images/team/gady-gabrielzadeh-v2.png",
+    },
+    {
+      name: "Tony Nasim",
+      title: "CSO / Partner",
+      photo: "/images/team/tony-nasim-v2.png",
+    },
+    {
+      name: "David Young",
+      title: "CMO & Partner",
+      photo: "/images/team/david-young-v2.png",
+    },
+    {
+      name: "Jeremy Loveland",
+      title: "VP of Underwriting",
+      photo: "/images/team/jeremy-loveland-v2.png",
+    },
+    {
+      name: "Alberto Martinez",
+      title: "Secondary & Sales Manager",
+      photo: "/images/team/alberto-martinez.webp",
+    },
+    {
+      name: "Denise Paulson",
+      title: "VP of Funding",
+      photo: "/images/team/denise-paulson-v3.png",
+    },
+    {
+      name: "Jennifer Steinberg",
+      title: "VP of Processing",
+      photo: "/images/team/jennifer-steinberg-v2.png",
+    },
   ],
 
   // ── CTA Form ────────────────────────────────────────────────────────
   cta: {
     eyebrow: "READY TO TALK?",
-    headline: "Talk to a Manager",
+    headline: "Let's Talk",
     subhead:
       "Tell us about your business. A manager will reach out within one business day to walk through comp, products, and onboarding.",
     formAction: "/api/recruit-inquiry",
@@ -150,11 +243,11 @@ export const companyProfile = {
   meta: {
     title: "Join LendWise Mortgage | Built by LOs. Engineered for Closers.",
     description:
-      "LendWise gives independent loan officers the investor breadth, in-house operations, and AI tooling to close more loans. Licensed in CA, CO, FL, TX. NMLS 2702455.",
+      "A direct lender for loan officers — full investor stack, in-house operations, AI-powered marketing and pipeline tools. Licensed in CA, TX, FL, CO, PA, NC and growing. NMLS 2702455.",
     keywords:
       "loan officer recruiting, mortgage broker, mortgage banker, join lendwise, LO opportunity, NMLS, non-QM, DSCR, jumbo, scenario desk",
     ogTitle: "Join LendWise — Built by LOs. Engineered for Closers.",
     ogDescription:
-      "Investor breadth, in-house ops, AI tooling. Licensed in CA, CO, FL, TX.",
+      "Investor breadth, in-house ops, AI tooling. Licensed in CA, TX, FL, CO, PA, NC.",
   },
 };

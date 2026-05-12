@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { companyProfile } from "@/config/company-profile";
 
@@ -50,32 +49,7 @@ export function CompanyHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl w-full mx-auto pt-32 md:pt-44 lg:pt-48 text-center">
-        <motion.p
-          className="text-xs uppercase tracking-[4px] text-cyan-400 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {h.eyebrow}
-        </motion.p>
-
-        <motion.div
-          className="flex justify-center mb-8"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <Image
-            src={h.logoPath}
-            alt="LendWise Mortgage"
-            width={140}
-            height={140}
-            priority
-            className="drop-shadow-[0_0_40px_rgba(201,162,39,0.45)]"
-          />
-        </motion.div>
-
+      <div className="relative z-10 max-w-5xl w-full mx-auto pt-44 md:pt-60 lg:pt-72 text-center">
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight whitespace-pre-line"
           initial={{ opacity: 0, y: 20 }}

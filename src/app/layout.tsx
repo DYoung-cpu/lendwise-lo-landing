@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://join.teamlendwise.com"),
+  metadataBase: new URL("https://teamlendwise.com"),
   title: companyProfile.meta.title,
   description: companyProfile.meta.description,
   keywords: companyProfile.meta.keywords,

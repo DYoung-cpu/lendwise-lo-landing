@@ -123,7 +123,7 @@ export function RecruitForm() {
               disabled={submitting}
               className="w-full rounded-lg bg-gradient-to-r from-[#C9A227] to-[#E5C158] hover:from-[#D4AF37] hover:to-[#F0CC68] text-slate-950 font-bold py-4 px-6 text-sm uppercase tracking-[2px] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_30px_rgba(201,162,39,0.3)]"
             >
-              {submitting ? "Sending…" : "Send to a Manager"}
+              {submitting ? "Sending…" : "Send Message"}
             </button>
           </form>
         )}

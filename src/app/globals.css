@@ -111,6 +111,25 @@ html {
   animation: star-btn calc(var(--duration) * 1s) linear infinite;
 }
 
+/* Investor marquee — two opposing lanes, infinite seamless scroll */
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-ltr {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.animate-marquee-rtl {
+  animation: marquee-rtl 75s linear infinite;
+  will-change: transform;
+}
+.animate-marquee-ltr {
+  animation: marquee-ltr 75s linear infinite;
+  will-change: transform;
+}
+/* (hover-pause removed — nothing to interact with, motion should be continuous) */
+
 /* Hide scrollbar but allow scrolling */
 .scrollbar-hide {
   -ms-overflow-style: none;
